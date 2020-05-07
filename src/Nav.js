@@ -11,30 +11,18 @@ class Nav extends Component {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item active">
-                        <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                        <a className="nav-link" href="#">Accueil <span className="sr-only">(current)</span></a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Link</a>
-                    </li>
-                    <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            dropdown
-                        </a>
-                        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a className="dropdown-item" href="#">Action</a>
-                            <a className="dropdown-item" href="#">Another action</a>
-                            <div className="dropdown-divider"></div>
-                            <a className="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link disabled" href="#">Disabled</a>
+                        <a className="nav-link" href="#"></a>
                     </li>
                 </ul>
-                <form className="form-inline my-2 my-lg-0">
-                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
-                    <button className="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                <form className="form-inline my-auto mx-auto w-75">
+                    <input className ="form-control mr-sm-2 w-75"  type="search" placeholder="Tapez votre recherche et peut-être que vous trouverez, on ne sait pas ! Une chance sur 5 d'aprés un des développeurs ..." aria-label="Search" size="90" max-length="30" required></input>
+                    <button className="btn btn-outline-dark my-2 my-sm-0" type="submit">Recherchez!</button>
                 </form>
+                <button type="button" class="btn btn-outline-light">Inscription</button>
+                <button type="button" class="btn btn-light">Connexion</button>
             </div>
         </nav>
     );
