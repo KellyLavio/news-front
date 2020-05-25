@@ -46,9 +46,17 @@ class Nav extends Component {
         <button type="button" class="btn btn-outline-light">
           Inscription
         </button>
-        <button type="button" class="btn btn-light" id="connexion-btn">
+        <button
+          type="button"
+          class="btn btn-light"
+          id="connexion-btn"
+          data-toggle="modal"
+          data-target="#connexionModal"
+        >
           Connexion
         </button>
+
+        
       </div>
     </nav>
   );
