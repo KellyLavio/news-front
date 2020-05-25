@@ -20,7 +20,7 @@ class MainContainer extends Component {
     componentDidMount = () => {
       Axios.get("https://127.0.0.1:8000/api/articles").then((res) =>
       this.setState({
-        articles: res.data,
+        articles: res.data["hydra:member"],
       })
     );
   };
@@ -61,7 +61,7 @@ class MainContainer extends Component {
                       <small className="text-muted">
                         {moment(article.date).format("LLLL")}
                       </small>
-                      <span class="badge badge-pill badge-primary">
+                      <span className="badge badge-pill badge-primary">
                         {article.category.name}
                       </span>
                     </div>

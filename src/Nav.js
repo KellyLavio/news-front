@@ -43,12 +43,12 @@ class Nav extends Component {
             Rechercher
           </button>
         </form>
-        <button type="button" class="btn btn-outline-light">
+        <button type="button" className="btn btn-outline-light">
           Inscription
         </button>
         <button
           type="button"
-          class="btn btn-light"
+          className="btn btn-light"
           id="connexion-btn"
           data-toggle="modal"
           data-target="#connexionModal"
