@@ -41,30 +41,47 @@
     -->
   </body>
   <!--Connexion Modal-->
-          <div class="modal fade" id="connexionModal" tabindex="-1" role="dialog" aria-labelledby="connexionModalLabel"
+          <div classNameName="modal fade" id="connexionModal" tabindex="-1" role="dialog" aria-labelledby="connexionModalLabel"
             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="connexionModalLabel">Connexion</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <div className="modal-dialog" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="connexionModalLabel">Connexion</h5>
+                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div class="modal-body">
-                  <div class="container">
-                    <div class="row">
+                <div className="modal-body">
+                  <div className="container">
+                    <div className="row">
                       <form>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Adresse e-mail</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            placeholder="Enter email" />
+                        <div className="form-group">
+                          <LoginErrors errors={errors} />
+                          <label for="login">Adresse e-mail</label>
+                          <input
+                            type="text"
+                            name="login"
+                            className="form-control"
+                            id="login"
+                            ref={register({ required: true })}
+                          />
                         </div>
-                        <div class="form-group">
-                          <label for="exampleInputPassword1">Mot de passe</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
+                        <div className="form-group">
+                          <label for="Password">Mot de passe</label>
+                          <input type="password" className="form-control" id="Password" placeholder="Password" 
+                          ref={register({ required: true })}
+                          />
                         </div>
-                        <button type="submit" class="btn btn-primary">Se connecter</button>
+                        {loading && (
+                          <div className="uk-flex uk-flex-center">
+                            <DoubleBounce />
+                          </div>
+                        )}
+                        {!loading && (
+                          <button className="uk-button uk-button-primary" disabled={loading}>
+                            Se connecter
+                          </button>
+                        )}
                       </form>
                     </div>
                   </div>
