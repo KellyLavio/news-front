@@ -1,19 +1,21 @@
 // React
-import React from "react";
+import React, { useState } from "react";
 
+import Login from "./components/Login/Login"
 import UserContext from "./context/UserContext";
+import { tokenName, urls } from "./utils/constants";
 import { Router, Route, Switch } from "react-router-dom";
 import { PrivateRoute } from "./utils/PrivateRoute";
 import history from "./utils/history";
 
+import DefaultPage from "./components/DefaultPage/Defaultpage";
+import Users from "./components/Users/Users";
+
 import "./App.css";
 
 // components
-import Users from "./components/Users/Users";
-import { useState } from "react";
-import { tokenName, urls } from "./utils/constants";
-import Login from "./components/Login/Login"
-import DefaultPage from "./components/DefaultPage/Defaultpage";
+// import Nav from "./Nav";
+// import MainContainer from "./MainContainer";
 
 
 const App = () => {
