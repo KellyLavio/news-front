@@ -61,7 +61,7 @@ const Login = () => {
                         </div>
                         <div>
                         {loading && (
-                          <div className="">
+                          <div className="btn btn-primary">
                           <DoubleBounce />
                         </div>
                         )}

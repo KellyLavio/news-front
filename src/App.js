@@ -9,8 +9,6 @@ import history from "./utils/history";
 import "./App.css";
 
 // components
-import Nav from "./Nav";
-import MainContainer from "./MainContainer";
 import Users from "./components/Users/Users";
 import { useState } from "react";
 import { tokenName, urls } from "./utils/constants";
