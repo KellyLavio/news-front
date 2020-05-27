@@ -55,10 +55,10 @@ const LoginModal = () => {
                 <div className="modal-body">
                   <div className="container">
                     <div className="row">
-                      <form onSubmit={handleSubmit(connect)}>
+                      <form style={{width:"100%"}} onSubmit={handleSubmit(connect)}>
                         <LoginErrors errors={errors} />
-                        <div className="form-group">
-                          <label for="login">Login</label>
+                        <div className="form-group"> 
+                          <label htmlFor="login">Login</label>
                           <input 
                             type="text" 
                             className="form-control" 
@@ -69,7 +69,7 @@ const LoginModal = () => {
                           />
                         </div>
                         <div className="form-group">
-                          <label for="password">Mot de passe</label>
+                          <label htmlFor="password">Mot de passe</label>
                           <input 
                             type="password" 
                             className="form-control" 
@@ -81,8 +81,8 @@ const LoginModal = () => {
                         <div className="text-center">
                         {loading && (
                           <div className="btn btn-primary">
-                            <div class="spinner-border text-success" role="status">
-                              <span class="sr-only">Loading...</span>
+                            <div className="spinner-border text-success" role="status">
+                              <span className="sr-only">Loading...</span>
                             </div>
                           </div>
                         )}
