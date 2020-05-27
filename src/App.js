@@ -1,7 +1,7 @@
 // React
 import React, { useState } from "react";
 
-import Login from "./components/Login/Login"
+import Login from "./components/Login/LoginModal"
 import UserContext from "./context/UserContext";
 import { tokenName, urls } from "./utils/constants";
 import { Router, Route, Switch } from "react-router-dom";
@@ -12,6 +12,7 @@ import DefaultPage from "./components/DefaultPage/Defaultpage";
 import Users from "./components/Users/Users";
 
 import "./App.css";
+import LoginModal from "./components/Login/LoginModal";
 
 // components
 // import Nav from "./Nav";
@@ -39,6 +40,7 @@ const App = () => {
             <Route exact path="/" component={DefaultPage} />
           </Switch>
         </div>
+        <LoginModal/>
       </Router>
 </UserContext.Provider>
   );

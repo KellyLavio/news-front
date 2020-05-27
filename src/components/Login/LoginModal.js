@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useForm } from "react-hook-form";
+import { useForm }  from "react-hook-form";
 import { DoubleBounce } from "better-react-spinkit";
 
 // import user from "../Users/Users";
@@ -10,7 +10,7 @@ import { tokenName } from '../../utils/constants';
 
 
 
-const Login = () => {
+const LoginModal = () => {
   // https://react-hook-form.com/get-started
   const { register, errors, setError, handleSubmit } = useForm();
   const [loading, setLoading] = useState(false);
@@ -81,7 +81,9 @@ const Login = () => {
                         <div className="text-center">
                         {loading && (
                           <div className="btn btn-primary">
-                          <DoubleBounce />
+                            <div class="spinner-border text-success" role="status">
+                              <span class="sr-only">Loading...</span>
+                            </div>
                           </div>
                         )}
                         {!loading && (
@@ -100,4 +102,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginModal;
