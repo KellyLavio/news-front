@@ -1,7 +1,6 @@
 // React
 import React, { useState } from "react";
 
-import Login from "./components/Login/LoginModal"
 import UserContext from "./context/UserContext";
 import { tokenName, urls } from "./utils/constants";
 import { Router, Route, Switch } from "react-router-dom";
@@ -28,7 +27,9 @@ const App = () => {
   const [username, setUsername] = useState(null);
 
   return (
+
     
+
     <UserContext.Provider
       value={{ isLogged, setIsLogged, username, setUsername }}>
       <Router history={history}>
@@ -36,13 +37,13 @@ const App = () => {
           <Switch>
             <PrivateRoute exact path={urls.user.list} component={Users} />
 
-            <Route exact path={urls.user.login} component={Login} />
+            <Route exact path={urls.user.login} component={LoginModal} />
             <Route exact path="/" component={DefaultPage} />
           </Switch>
         </div>
-        <LoginModal/>
+        <LoginModal />
       </Router>
-</UserContext.Provider>
+    </UserContext.Provider>
   );
 };
 
