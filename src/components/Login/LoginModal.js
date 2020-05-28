@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useForm }  from "react-hook-form";
 import { DoubleBounce } from "better-react-spinkit";
+import { Redirect } from 'react-router-dom';
 
 // import user from "../Users/Users";
 import login from "../../utils/login-utils";
@@ -95,6 +96,12 @@ const LoginModal = () => {
                         )}
                         </div>
                       </form>
+                      {user.setIsLogged &&(
+                        <Redirect to="/userPage" />
+                      )}
+                      {!user.setIsLogged &&(
+                        <Redirect to="/" />
+                      )}
                     </div>
                   </div>
                 </div>

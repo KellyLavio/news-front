@@ -7,7 +7,7 @@ const login = (username, password) => {
         method: 'POST',
         body: JSON.stringify({ username, password }),
         headers: new Headers({
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/ld+json'
         }),
     });
 

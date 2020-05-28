@@ -3,7 +3,7 @@ export const tokenName = 'front-user';
 
 export const urls = {
   user: {
-    login: '/login',
+    login: '/userPage',
     logout: '/logout',
     list: '/users'
   }
