@@ -42,7 +42,7 @@ const LoginModal = () => {
 
   return (
     // <--Connexion Modal-->
-          <div className="modal fade" id="connexionModal" tabindex="-1" role="dialog" aria-labelledby="connexionModalLabel"
+          <div className="modal fade" id="connexionModal" tabIndex="-1" role="dialog" aria-labelledby="connexionModalLabel"
             aria-hidden="true">
             <div className="modal-dialog" role="document">
               <div className="modal-content">
@@ -60,7 +60,8 @@ const LoginModal = () => {
                         <div className="form-group"> 
                           <label htmlFor="login">Login</label>
                           <input 
-                            type="text" 
+                            type="text"
+                            name="login" 
                             className="form-control" 
                             id="login" 
                             ref={register({ required: true })} 
@@ -71,7 +72,8 @@ const LoginModal = () => {
                         <div className="form-group">
                           <label htmlFor="password">Mot de passe</label>
                           <input 
-                            type="password" 
+                            type="password"
+                            name="password" 
                             className="form-control" 
                             id="password" 
                             ref={register({ required: true })} 

@@ -12,6 +12,7 @@ import Users from "./components/Users/Users";
 
 import "./App.css";
 import LoginModal from "./components/Login/LoginModal";
+import UserPage from "./components/Users/UserPage";
 
 // components
 // import Nav from "./Nav";
@@ -37,7 +38,7 @@ const App = () => {
           <Switch>
             <PrivateRoute exact path={urls.user.list} component={Users} />
 
-            <Route exact path={urls.user.login} component={LoginModal} />
+            <Route exact path={urls.user.login} component={UserPage} />
             <Route exact path="/" component={DefaultPage} />
           </Switch>
         </div>
