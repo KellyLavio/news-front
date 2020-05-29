@@ -46,7 +46,7 @@ class Nav extends Component {
             </button>
               </form>
               {value.isLogged ? (
-                <button type="button" className="btn btn-light">Déconnexion</button>
+                <button type="button" className="btn btn-light" onClick={localStorage.clear()}>Déconnexion</button>
               ) :
                 <>
                   <button type="button" className="btn btn-outline-light">

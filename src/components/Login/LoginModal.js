@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useForm }  from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { DoubleBounce } from "better-react-spinkit";
 import { Redirect } from 'react-router-dom';
 
@@ -42,71 +42,71 @@ const LoginModal = () => {
 
   return (
     // <--Connexion Modal-->
-          <div className="modal fade" id="connexionModal" tabIndex="-1" role="dialog" aria-labelledby="connexionModalLabel"
-            aria-hidden="true">
-            <div className="modal-dialog" role="document">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="connexionModalLabel">Connexion</h5>
-                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div className="modal-body">
-                  <div className="container">
-                    <div className="row">
-                      <form style={{width:"100%"}} onSubmit={handleSubmit(connect)}>
-                        <LoginErrors errors={errors} />
-                        <div className="form-group"> 
-                          <label htmlFor="login">Login</label>
-                          <input 
-                            type="text"
-                            name="login" 
-                            className="form-control" 
-                            id="login" 
-                            ref={register({ required: true })} 
-                            aria-describedby="emailHelp"
-                            placeholder="Entrer votre login" 
-                          />
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="password">Mot de passe</label>
-                          <input 
-                            type="password"
-                            name="password" 
-                            className="form-control" 
-                            id="password" 
-                            ref={register({ required: true })} 
-                            placeholder="Mot de passe" 
-                          />
-                        </div>
-                        <div className="text-center">
-                        {loading && (
-                          <div className="btn btn-primary">
-                            <div className="spinner-border text-success" role="status">
-                              <span className="sr-only">Loading...</span>
-                            </div>
-                          </div>
-                        )}
-                        {!loading && (
-                          <button className="btn btn-primary" disabled={loading}>
-                            Connexion
-                          </button>
-                        )}
-                        </div>
-                      </form>
-                      {logged &&(
-                        <Redirect to="/userPage" />
-                      )}
-                      {!logged &&(
-                        <Redirect to="/" />
-                      )}
-                    </div>
+    <div className="modal fade" id="connexionModal" tabIndex="-1" role="dialog" aria-labelledby="connexionModalLabel"
+      aria-hidden="true">
+      <div className="modal-dialog" role="document">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h5 className="modal-title" id="connexionModalLabel">Connexion</h5>
+            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div className="modal-body">
+            <div className="container">
+              <div className="row">
+                <form style={{ width: "100%" }} onSubmit={handleSubmit(connect)}>
+                  <LoginErrors errors={errors} />
+                  <div className="form-group">
+                    <label htmlFor="login">Login</label>
+                    <input
+                      type="text"
+                      name="login"
+                      className="form-control"
+                      id="login"
+                      ref={register({ required: true })}
+                      aria-describedby="emailHelp"
+                      placeholder="Entrer votre login"
+                    />
                   </div>
-                </div>
+                  <div className="form-group">
+                    <label htmlFor="password">Mot de passe</label>
+                    <input
+                      type="password"
+                      name="password"
+                      className="form-control"
+                      id="password"
+                      ref={register({ required: true })}
+                      placeholder="Mot de passe"
+                    />
+                  </div>
+                  <div className="text-center">
+                    {loading && (
+                      <div className="btn btn-primary">
+                        <div className="spinner-border text-success" role="status">
+                          <span className="sr-only">Loading...</span>
+                        </div>
+                      </div>
+                    )}
+                    {!loading && (
+                      <button className="btn btn-primary" disabled={loading}>
+                        Connexion
+                      </button>
+                    )}
+                  </div>
+                </form>
+                {logged && (
+                  <Redirect to="/userPage" />
+                )}
+                {!logged && (
+                  <Redirect to="/" />
+                )}
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
