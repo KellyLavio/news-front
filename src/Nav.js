@@ -27,9 +27,6 @@ class Nav extends Component {
                 Accueil <span className="sr-only">(current)</span>
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#"></a>
-            </li>
           </ul>
           <form className="form-inline my-auto mx-auto w-75">
             <input

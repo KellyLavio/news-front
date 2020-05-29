@@ -8,9 +8,9 @@ const ThemeContext = React.createContext({
     dark: {
     foreground: '#ffffff',
     background: '#222222',
-  }
-}
-);
+    },
+    setTheme: () => {}
+  });
 
 
 export default ThemeContext;
