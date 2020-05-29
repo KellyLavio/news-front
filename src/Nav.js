@@ -3,7 +3,7 @@ import UserContext from "./context/UserContext";
 
 class Nav extends Component {
   render = () => (
-    <UserContext.Consumer>
+    //<UserContext.Consumer>
       <nav className="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top">
         <a className="navbar-brand" href="#">
           News Broadcaster
@@ -59,7 +59,7 @@ class Nav extends Component {
         </button>
         </div>
       </nav>
-    </UserContext.Consumer>
+    //</UserContext.Consumer>
   );
 }
 
