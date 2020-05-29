@@ -15,8 +15,7 @@ const LoginModal = () => {
   // https://react-hook-form.com/get-started
   const { register, errors, setError, handleSubmit } = useForm();
   const [loading, setLoading] = useState(false);
-
-  const user = useContext(UserContext);
+  const [logged, setIsLogged] = useState(false);
 
   const connect = data => {
     setLoading(true);
@@ -30,12 +29,12 @@ const LoginModal = () => {
       })
       .then(({ token }) => {
         localStorage.setItem(tokenName, token);
-        user.setIsLogged(true);
+        setIsLogged(true);
         setLoading(false);
       })
       .catch(e => {
         setLoading(false);
-        user.setIsLogged(false);
+        setIsLogged(false);
         // https://react-hook-form.com/api#setError
         setError("apiServer", "connection", "Une erreur est survenue");
       });
@@ -96,10 +95,10 @@ const LoginModal = () => {
                         )}
                         </div>
                       </form>
-                      {user.setIsLogged &&(
+                      {logged &&(
                         <Redirect to="/userPage" />
                       )}
-                      {!user.setIsLogged &&(
+                      {!logged &&(
                         <Redirect to="/" />
                       )}
                     </div>
