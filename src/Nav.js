@@ -27,7 +27,7 @@ class Nav extends Component {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item active">
-                  <a className="nav-link" href="#">
+                  <a className="nav-link" href="/">
                     Accueil <span className="sr-only">(current)</span>
                   </a>
                 </li>
@@ -47,7 +47,7 @@ class Nav extends Component {
             </button>
               </form>
               {value.isLogged ? (
-                <button type="button" className="btn btn-light" onClick={localStorage.clear()}>Déconnexion</button>
+                <button type="button" className="btn btn-light" onClick={() => localStorage.clear()}>Déconnexion</button>
               ) :
                 <>
                   <button type="button" className="btn btn-outline-light">
@@ -60,7 +60,6 @@ class Nav extends Component {
                     id="connexion-btn"
                   >
                     Connexion
-                    < Redirect to="/login" />
                   </a>
                 </>
               }

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { DoubleBounce } from "better-react-spinkit";
-import { Redirect } from 'react-router-dom';
+import history from '../../utils/history';
 
 // import user from "../Users/Users";
 import login from "../../utils/login-utils";
@@ -16,9 +16,9 @@ const Login = () => {
     // https://react-hook-form.com/get-started
     const { register, errors, setError, handleSubmit } = useForm();
     const [loading, setLoading] = useState(false);
-    const [logged, setIsLogged] = useState(false);
+    const context = useContext(UserContext);
 
-    const connect = data => {
+    const connect = (data) => {
         setLoading(true);
 
         login(data.login, data.password)
@@ -30,12 +30,13 @@ const Login = () => {
             })
             .then(({ token }) => {
                 localStorage.setItem(tokenName, token);
-                setIsLogged(true);
+                context.setIsLogged(true);
                 setLoading(false);
+                history.push("/userPage");
             })
             .catch(e => {
                 setLoading(false);
-                setIsLogged(false);
+                context.setIsLogged(false);
                 // https://react-hook-form.com/api#setError
                 setError("apiServer", "connection", "Une erreur est survenue");
             });
@@ -50,7 +51,11 @@ const Login = () => {
                 </div>
                 <div className="row">
                     <form style={{ width: "100%" }} onSubmit={handleSubmit(connect)}>
-                        <LoginErrors errors={errors} />
+                        <div className="row d-flex justify-content-center">
+                            <div className="col-md-6">
+                                <LoginErrors errors={errors} />
+                            </div>
+                        </div>
                         <div className="form-group d-flex justify-content-center">
                             <div className="col-md-6">
                                 <label htmlFor="login">Login</label>
@@ -95,9 +100,6 @@ const Login = () => {
                             </div>
                         </div>
                     </form>
-                    {logged && (
-                        <Redirect to="/userPage" />
-                    )}
                 </div>
             </div>
         </>

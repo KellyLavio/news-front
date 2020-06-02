@@ -3,7 +3,7 @@ import React from "react";
 const LoginErrors = ({ errors }) =>
   errors &&
   Object.keys(errors).length > 0 && (
-    <div className="uk-alert-danger" uk-alert="true">
+    <div className="alert alert-danger">
       {errors.login && (
         <>
           Le login est obligatoire
