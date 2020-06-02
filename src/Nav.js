@@ -66,24 +66,24 @@ class Nav extends Component {
                   Déconnexion
                 </button>
               ) : (
-                <>
-                  <button
-                    type="button"
-                    href="/subscribe"
-                    className="btn btn-outline-light"
-                  >
-                    Inscription
-                  </button>
-                  <a
-                    type="button"
-                    href="/login"
-                    className="btn btn-light"
-                    id="connexion-btn"
-                  >
-                    Connexion
+                  <>
+                    <a
+                      type="button"
+                      href="/subscribe"
+                      className="btn btn-outline-light"
+                      id="inscription-btn">
+                      Inscription
                   </a>
-                </>
-              )}
+                    <a
+                      type="button"
+                      href="/login"
+                      className="btn btn-light"
+                      id="connexion-btn"
+                    >
+                      Connexion
+                  </a>
+                  </>
+                )}
             </div>
           </nav>
         );
