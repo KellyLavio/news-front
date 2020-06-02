@@ -44,8 +44,8 @@ const App = () => {
             <div>
               <Switch>
                 <PrivateRoute exact path={urls.user.list} component={Users} />
-                <Route exact path="/login" component={Login} />
-                <Route exact path={urls.user.userpage} component={UserPage} />
+                <PrivateRoute exact path={urls.user.userpage} component={UserPage} />
+                <Route exact path={urls.user.login} component={Login} />
                 <Route exact path="/" component={DefaultPage} />
               </Switch>
             </div>
