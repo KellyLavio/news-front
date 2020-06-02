@@ -50,7 +50,7 @@ const App = () => {
                 <Route exact path="/" component={DefaultPage} />
               </Switch>
             </div>
-            <LoginModal />
+            {/* <LoginModal /> */}
           </Router>
         </UserContext.Provider>
       </ThemeContext.Provider>

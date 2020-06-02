@@ -5,25 +5,32 @@ import "./App.css";
 // dependencies
 import Axios from "axios";
 
-var moment = require('moment');
+var moment = require("moment");
 require("moment/locale/fr");
 moment.locale("fr");
 
 class MainContainer extends Component {
   constructor(props) {
+    console.log("MainContainer CONSTRUCTOR");
     super(props);
     this.state = {
       articles: [],
     };
   }
 
-    componentDidMount = () => {
-      Axios.get("https://127.0.0.1:8000/api/articles").then((res) =>
+  componentDidMount = () => {
+    console.log("MainContainer componentDidMount");
+    Axios.get("https://127.0.0.1:8000/api/articles").then((res) => {
+      console.log("MainContainer then ARTICLES callback");
       this.setState({
         articles: res.data["hydra:member"],
-      })
-    );
+      });
+    }).catch(err => console.log("MainContainer ARTICLES ERROR callback"));
   };
+
+  componentWillUnmount = () => {
+    console.log("MainContainer WILL UNMOUNT");
+  }
 
   render = () => {
     return (
@@ -78,4 +85,3 @@ class MainContainer extends Component {
 }
 
 export default MainContainer;
-
