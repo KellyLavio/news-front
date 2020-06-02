@@ -37,17 +37,21 @@ const App = () => {
 
 
     return (
-      <ThemeContext.Provider 
-        value={{ theme, setTheme}}>
+      <ThemeContext.Provider value={{ theme, setTheme }}>
         <UserContext.Provider
-          value={{ isLogged, setIsLogged, username, setUsername }}>
+          value={{ isLogged, setIsLogged, username, setUsername }}
+        >
           <Router history={history}>
             <div>
               <Switch>
                 <PrivateRoute exact path={urls.user.list} component={Users} />
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/subscribe" component={Subscribe} />
-                <Route exact path={urls.user.userpage} component={UserPage} />
+                <Route exact path={urls.user.login} component={Login} />
+                <Route exact path={urls.user.subscribe} component={Subscribe} />
+                <PrivateRoute
+                  exact
+                  path={urls.user.userpage}
+                  component={UserPage}
+                />
                 <Route exact path="/" component={DefaultPage} />
               </Switch>
             </div>
