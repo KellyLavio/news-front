@@ -15,6 +15,7 @@ import UserPage from "./components/Users/UserPage";
 
 import ThemeContext from './context/ThemeContext';
 import Login from "./components/Login/Login";
+import Subscribe from "./components/Subscribe/Subscribe";
 
 
 const App = () => {
@@ -45,6 +46,7 @@ const App = () => {
               <Switch>
                 <PrivateRoute exact path={urls.user.list} component={Users} />
                 <Route exact path="/login" component={Login} />
+                <Route exact path="/subscribe" component={Subscribe} />
                 <Route exact path={urls.user.userpage} component={UserPage} />
                 <Route exact path="/" component={DefaultPage} />
               </Switch>

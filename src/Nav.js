@@ -12,7 +12,7 @@ class Nav extends Component {
           <nav className="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top">
             <a className="navbar-brand" href="#">
               News Broadcaster
-          </a>
+            </a>
             <button
               className="navbar-toggler"
               type="button"
@@ -25,7 +25,10 @@ class Nav extends Component {
               <span className="navbar-toggler-icon"></span>
             </button>
 
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <div
+              className="collapse navbar-collapse"
+              id="navbarSupportedContent"
+            >
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item active">
                   <a className="nav-link" href="/">
@@ -43,15 +46,32 @@ class Nav extends Component {
                   max-length="30"
                   required
                 ></input>
-                <button className="btn btn-outline-dark my-2 my-sm-0" type="submit">
+                <button
+                  className="btn btn-outline-dark my-2 my-sm-0"
+                  type="submit"
+                >
                   Rechercher
-            </button>
+                </button>
               </form>
               {value.isLogged ? (
-                <button type="button" className="btn btn-light" onClick={(e) => {localStorage.clear(); history.push("/"); value.isLogged = false; }}>Déconnexion</button>
-              ) :
+                <button
+                  type="button"
+                  className="btn btn-light"
+                  onClick={(e) => {
+                    localStorage.clear();
+                    history.push("/");
+                    value.isLogged = false;
+                  }}
+                >
+                  Déconnexion
+                </button>
+              ) : (
                 <>
-                  <button type="button" className="btn btn-outline-light">
+                  <button
+                    type="button"
+                    href="/subscribe"
+                    className="btn btn-outline-light"
+                  >
                     Inscription
                   </button>
                   <a
@@ -63,11 +83,10 @@ class Nav extends Component {
                     Connexion
                   </a>
                 </>
-              }
-
+              )}
             </div>
           </nav>
-        )
+        );
       }}
 
     </UserContext.Consumer>
