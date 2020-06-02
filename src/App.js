@@ -11,7 +11,6 @@ import DefaultPage from "./components/DefaultPage/Defaultpage";
 import Users from "./components/Users/Users";
 
 import "./App.css";
-import LoginModal from "./components/Login/LoginModal";
 import UserPage from "./components/Users/UserPage";
 
 import ThemeContext from './context/ThemeContext';

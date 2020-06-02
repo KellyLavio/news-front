@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import UserContext from "./context/UserContext";
-import { Redirect } from "react-router-dom";
+import history from "./utils/history";
+
 
 class Nav extends Component {
   render = () => (
@@ -47,7 +48,7 @@ class Nav extends Component {
             </button>
               </form>
               {value.isLogged ? (
-                <button type="button" className="btn btn-light" onClick={() => localStorage.clear()}>Déconnexion</button>
+                <button type="button" className="btn btn-light" onClick={(e) => {localStorage.clear(); history.push("/"); value.isLogged = false; }}>Déconnexion</button>
               ) :
                 <>
                   <button type="button" className="btn btn-outline-light">
