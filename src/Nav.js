@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import UserContext from "./context/UserContext";
+import { Redirect } from "react-router-dom";
 
 class Nav extends Component {
   render = () => (
@@ -52,15 +53,15 @@ class Nav extends Component {
                   <button type="button" className="btn btn-outline-light">
                     Inscription
                   </button>
-                  <button
+                  <a
                     type="button"
+                    href="/login"
                     className="btn btn-light"
                     id="connexion-btn"
-                    data-toggle="modal"
-                    data-target="#connexionModal"
                   >
                     Connexion
-                  </button>
+                    < Redirect to="/login" />
+                  </a>
                 </>
               }
 

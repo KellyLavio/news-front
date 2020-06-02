@@ -49,7 +49,7 @@ class MainContainer extends Component {
                         <img
                           className="card-img-top"
                           src="https://source.unsplash.com/1600x900/"
-                          alt="Card image cap"
+                          alt="Card cap"
                         />
                       </a>
                       <p className="card-text">{article.description}</p>

@@ -3,8 +3,9 @@ export const tokenName = 'front-user';
 
 export const urls = {
   user: {
-    login: '/userPage',
+    login: '/login',
     logout: '/logout',
-    list: '/users'
+    list: '/users',
+    userpage: '/userPage'
   }
 };
