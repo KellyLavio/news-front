@@ -1,7 +1,8 @@
 import React from "react";
 import { useForm} from "react-hook-form";
-
-import userRegister from "../../utils/register-utils";
+import { userRegister, 
+  // displayUserRegisterPopup 
+} from "../../utils/register-utils";
 import RegisterErrors from "./RegisterErrors"
 import Nav from "../../Nav";
 import { useState } from "react";
@@ -11,11 +12,11 @@ import history from "../../utils/history";
 const Register = () => {
     const { register, errors, setError, handleSubmit } = useForm();
     const [loading, setLoading] = useState(false);
-
+    $("#registerBtn").on("show.bs.toast", displayUserRegisterPopup());
     const registering = data => {
         setLoading(true);
 
-        userRegister(data.name, data.firstname, data.name, data.password, data.login, data.email)
+        userRegister(data.name, data.firstname, data.password, data.login, data.email)
             .then(response => {
                 if (response.status < 200 || response.status >= 300)
                     throw new Error(response);
@@ -25,10 +26,13 @@ const Register = () => {
             .then(e => {
                 setLoading(false);
                 history.push("/login");
+                // displayUserRegisterPopup();
+                // $("#registerBtn").toast("show");
+                alert("Inscription envoyée !");
             })
             .catch(e => {
                 setLoading(false);
-                setError("apiServer", "conection", "Une erreur est survenue");
+                setError("apiServer", "connection", "Une erreur est survenue");
             });
     };
 
@@ -130,7 +134,9 @@ const Register = () => {
                     </div>
                   )}
                   {!loading && (
-                    <button className="btn btn-primary" disabled={loading}>
+                    <button className="btn btn-primary" 
+                    // id="registerBtn" 
+                    disabled={loading}>
                       S'inscrire
                     </button>
                   )}

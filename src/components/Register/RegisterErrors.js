@@ -1,6 +1,6 @@
 import React from "react";
 
-const SubscribeErrors = ({ errors }) =>
+const RegisterErrors = ({ errors }) =>
   errors &&
   Object.keys(errors).length > 0 && (
     <div className="alert alert-danger">
@@ -21,9 +21,9 @@ const SubscribeErrors = ({ errors }) =>
           Le prénom est obligatoire
           <br />
         </>
-      )}{errors.lastname && (
+      )}{errors.email && (
         <>
-          Le prénom est obligatoire
+          L'e-mail est obligatoire
           <br />
         </>
       )}
@@ -36,4 +36,4 @@ const SubscribeErrors = ({ errors }) =>
     </div>
   );
 
-    export default SubscribeErrors;
+    export default RegisterErrors;
