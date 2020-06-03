@@ -24,6 +24,7 @@ const Register = () => {
             })
             .then(e => {
                 setLoading(false);
+                history.push("/login");
             })
             .catch(e => {
                 setLoading(false);
