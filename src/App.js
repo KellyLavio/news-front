@@ -15,7 +15,7 @@ import UserPage from "./components/Users/UserPage";
 
 import ThemeContext from './context/ThemeContext';
 import Login from "./components/Login/Login";
-import Subscribe from "./components/Subscribe/Subscribe";
+import Register from "./components/Register/Register";
 
 
 const App = () => {
@@ -46,7 +46,7 @@ const App = () => {
               <Switch>
                 <PrivateRoute exact path={urls.user.list} component={Users} />
                 <Route exact path={urls.user.login} component={Login} />
-                <Route exact path={urls.user.subscribe} component={Subscribe} />
+                <Route exact path={urls.user.register} component={Register} />
                 <PrivateRoute
                   exact
                   path={urls.user.userpage}

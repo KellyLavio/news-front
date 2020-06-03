@@ -69,7 +69,7 @@ class Nav extends Component {
                   <>
                     <a
                       type="button"
-                      href="/subscribe"
+                      href="/register"
                       className="btn btn-outline-light"
                       id="inscription-btn">
                       Inscription

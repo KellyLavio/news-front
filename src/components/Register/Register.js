@@ -1,20 +1,20 @@
 import React from "react";
 import { useForm} from "react-hook-form";
 
-import subscribe from "../../utils/subscribe-utils";
-import SubscribeErrors from "./SubscribeErrors"
+import register from "../../utils/register-utils";
+import RegisterErrors from "./RegisterErrors"
 import Nav from "../../Nav";
 import { useState } from "react";
 
 
-const Subscribe = () => {
+const Register = () => {
     const { register, errors, setError, handleSubmit } = useForm();
     const [loading, setLoading] = useState(false);
 
-    const subscribing = data => {
+    const registering = data => {
         setLoading(true);
 
-        subscribe(data.name, data.firstname, data.lastname, data.password, data.login, data.email)
+        register(data.name, data.firstname, data.lastname, data.password, data.login, data.email)
             .then(response => {
                 if (response.status < 200 || response.status >= 300)
                     throw new Error(response);
@@ -39,11 +39,11 @@ const Subscribe = () => {
           <div className="row">
             <form
               style={{ width: "100%" }}
-              onSubmit={handleSubmit(subscribing)}
+              onSubmit={handleSubmit(registering)}
             >
               <div className="row d-flex justify-content-center">
                 <div className="col-md-6">
-                  <SubscribeErrors errors={errors} />
+                  <RegisterErrors errors={errors} />
                 </div>
               </div>
               <div className="form-group d-flex justify-content-center">
@@ -141,4 +141,4 @@ const Subscribe = () => {
     );
 };
 
-export default Subscribe;
+export default Register;

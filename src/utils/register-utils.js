@@ -2,7 +2,7 @@ import * as constants from './constants';
 
 const login_uri = `${constants.apiPlatformApiEndpoint}/users`;
 
-const subscribe = (name, firstname, email, password, login) => {
+const register = (name, firstname, email, password, login) => {
     const request = new Request(`${login_uri}`, {
         method: 'POST',
         body: JSON.stringify({ name, firstname, email, password, login }),
@@ -14,4 +14,4 @@ const subscribe = (name, firstname, email, password, login) => {
     return fetch(request);
 }
 
-export default subscribe;
+export default register;
