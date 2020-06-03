@@ -1,10 +1,11 @@
 import React from "react";
 import { useForm} from "react-hook-form";
 
-import register from "../../utils/register-utils";
+import userRegister from "../../utils/register-utils";
 import RegisterErrors from "./RegisterErrors"
 import Nav from "../../Nav";
 import { useState } from "react";
+import history from "../../utils/history";
 
 
 const Register = () => {
@@ -14,7 +15,7 @@ const Register = () => {
     const registering = data => {
         setLoading(true);
 
-        register(data.name, data.firstname, data.lastname, data.password, data.login, data.email)
+        userRegister(data.name, data.firstname, data.name, data.password, data.login, data.email)
             .then(response => {
                 if (response.status < 200 || response.status >= 300)
                     throw new Error(response);
@@ -76,14 +77,14 @@ const Register = () => {
               </div>
               <div className="form-group d-flex justify-content-center">
                 <div className="col-md-6">
-                  <label htmlFor="lastName">Nom de Famille</label>
+                  <label htmlFor="name">Nom de Famille</label>
                   <input
                     type="text"
-                    name="lastName"
+                    name="name"
                     className="form-control"
-                    id="lastName"
+                    id="name"
                     ref={register({ required: true })}
-                    aria-describedby="lastNameHelp"
+                    aria-describedby="nameHelp"
                     placeholder="Entrer votre nom de famille"
                   />
                 </div>
@@ -92,7 +93,7 @@ const Register = () => {
                 <div className="col-md-6">
                   <label htmlFor="email">E-mail</label>
                   <input
-                    type="text"
+                    type="email"
                     name="email"
                     className="form-control"
                     id="email"

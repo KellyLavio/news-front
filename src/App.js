@@ -44,7 +44,6 @@ const App = () => {
           <Router history={history}>
             <div>
               <Switch>
-                <PrivateRoute exact path={urls.user.list} component={Users} />
                 <Route exact path={urls.user.login} component={Login} />
                 <Route exact path={urls.user.register} component={Register} />
                 <PrivateRoute
