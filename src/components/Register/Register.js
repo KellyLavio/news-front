@@ -12,7 +12,7 @@ import history from "../../utils/history";
 const Register = () => {
     const { register, errors, setError, handleSubmit } = useForm();
     const [loading, setLoading] = useState(false);
-    $("#registerBtn").on("show.bs.toast", displayUserRegisterPopup());
+    // $("#registersBtn").on("show.bs.toast", displayUserRegisterPopup());
     const registering = data => {
         setLoading(true);
 
