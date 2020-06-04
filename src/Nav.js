@@ -7,10 +7,9 @@ class Nav extends Component {
   render = () => (
     <UserContext.Consumer>
       {value => {
-        console.log(value);
         return (
           <nav className="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top">
-            <a className="navbar-brand" href="#">
+            <a className="navbar-brand" href="/">
               News Broadcaster
             </a>
             <button

@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from '../../Nav';
-import UserMainContainer from '../../MainContainer';
+import UserMainContainer from './UserMainContainer';
 
 const UserPage = () => (
     <>
