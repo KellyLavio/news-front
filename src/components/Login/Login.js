@@ -2,13 +2,11 @@ import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { DoubleBounce } from "better-react-spinkit";
 import history from '../../utils/history';
-
 // import user from "../Users/Users";
 import login from "../../utils/login-utils";
 import LoginErrors from "./LoginErrors";
 import UserContext from "../../context/UserContext";
 import { tokenName } from '../../utils/constants';
-import Nav from "../../Nav";
 
 
 
@@ -44,7 +42,6 @@ const Login = () => {
 
     return (
         <>
-            <Nav />
             <div className="container">
                 <div className="row d-flex justify-content-center">
                     <h1>Connexion</h1>
