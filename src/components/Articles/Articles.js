@@ -25,8 +25,8 @@ class Articles extends Component {
     render = () => {
         return (
             <div className="col-md-6 border border-top-0 border-bottom-0 pr-5 pl-5">
-                {this.state.articles.map((article) => (
-                    <ArticleItem
+                {this.state.articles.map((article, index) => (
+                    <ArticleItem key={index}
                         id={article.id}
                         title={article.title}
                         url={article.url}
