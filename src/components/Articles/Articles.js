@@ -24,22 +24,17 @@ class Articles extends Component {
 
     render = () => {
         return (
-
-            <div className="row">
-                <div className="col"></div>
-                <div className="col-6">
-                    {this.state.articles.map((article) => (
-                        <ArticleItem
-                            id={article.id}
-                            title={article.title}
-                            url={article.url}
-                            description={article.description}
-                            date={article.date}
-                            category={article.category.name}
-                        />
-                    ))}
-                </div>
-                <div className="col"></div>
+            <div className="col-6">
+                {this.state.articles.map((article) => (
+                    <ArticleItem
+                        id={article.id}
+                        title={article.title}
+                        url={article.url}
+                        description={article.description}
+                        date={article.date}
+                        category={article.category.name}
+                    />
+                ))}
             </div>
         );
     };
