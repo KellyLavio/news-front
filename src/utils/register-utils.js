@@ -1,4 +1,3 @@
-// import React from "react";
 import * as constants from './constants';
 
 const login_uri = `${constants.apiPlatformApiEndpoint}/users`;
@@ -14,12 +13,3 @@ export const userRegister = (name, firstname, email, password, login) => {
 
     return fetch(request);
 }
-
-// export const displayUserRegisterPopup = () => {
-//     return (
-//       <div class="toast" role="alert">
-//         Inscription enregistrée !
-//       </div>
-//     );
-// }
-
