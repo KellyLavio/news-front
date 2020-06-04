@@ -1,14 +1,8 @@
 import React from "react";
-<<<<<<< HEAD
-import { useForm } from "react-hook-form";
-
-import userRegister from "../../utils/register-utils";
-=======
 import { useForm} from "react-hook-form";
 import { userRegister, 
   // displayUserRegisterPopup 
 } from "../../utils/register-utils";
->>>>>>> 15364264506d37fe3225144fe2e77733b22e1b65
 import RegisterErrors from "./RegisterErrors"
 import Nav from "../../Nav";
 import { useState } from "react";
@@ -16,30 +10,6 @@ import history from "../../utils/history";
 
 
 const Register = () => {
-<<<<<<< HEAD
-  const { register, errors, setError, handleSubmit } = useForm();
-  const [loading, setLoading] = useState(false);
-
-  const registering = data => {
-    setLoading(true);
-
-    userRegister(data.name, data.firstname, data.name, data.password, data.login, data.email)
-      .then(response => {
-        if (response.status < 200 || response.status >= 300)
-          throw new Error(response);
-
-        return response.json();
-      })
-      .then(e => {
-        setLoading(false);
-        history.push("/login");
-      })
-      .catch(e => {
-        setLoading(false);
-        setError("apiServer", "conection", "Une erreur est survenue");
-      });
-  };
-=======
     const { register, errors, setError, handleSubmit } = useForm();
     const [loading, setLoading] = useState(false);
     // $("#registersBtn").on("show.bs.toast", displayUserRegisterPopup());
@@ -65,7 +35,6 @@ const Register = () => {
                 setError("apiServer", "connection", "Une erreur est survenue");
             });
     };
->>>>>>> 15364264506d37fe3225144fe2e77733b22e1b65
 
 
   return (
@@ -151,7 +120,6 @@ const Register = () => {
                   placeholder="Mot de passe"
                 />
               </div>
-<<<<<<< HEAD
             </div>
             <div className="row d-flex justify-content-center">
                 {loading && (
@@ -166,31 +134,6 @@ const Register = () => {
                 )}
             </div>
           </form>
-=======
-              <div className="row d-flex justify-content-center">
-                <div className="text-center">
-                  {loading && (
-                    <div className="btn btn-primary">
-                      <div
-                        className="spinner-border text-success"
-                        role="status"
-                      >
-                        <span className="sr-only">Loading...</span>
-                      </div>
-                    </div>
-                  )}
-                  {!loading && (
-                    <button className="btn btn-primary" 
-                    // id="registerBtn" 
-                    disabled={loading}>
-                      S'inscrire
-                    </button>
-                  )}
-                </div>
-              </div>
-            </form>
-          </div>
->>>>>>> 15364264506d37fe3225144fe2e77733b22e1b65
         </div>
       </div>
     </>
