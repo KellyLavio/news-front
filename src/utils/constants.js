@@ -1,6 +1,6 @@
 export const apiPlatformApiEndpoint = `${process.env.REACT_APP_API_ENTRYPOINT}/api`;
 export const ARTICLE_ENDPOINT = apiPlatformApiEndpoint + '/articles';
-export const CATEGORY_ENDPOINT = apiPlatformApiEndpoint + '/categories';
+export const CATEGORY_ENDPOINT = apiPlatformApiEndpoint + '/categories/22';
 
 export const tokenName = 'front-user';
 
