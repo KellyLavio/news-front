@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 
 // dependencies
-import ArticleItem from "./ArticlesItem";
+import ArticleItem from "./ArticleItem";
 import { useEffect } from "react";
 import { getArticles } from "../../services/articleService";
 
@@ -27,6 +27,7 @@ const Articles = () => {
                     url={article.url}
                     description={article.description}
                     date={article.date}
+                    source={article.source.name}
                     category={article.category.name}
                 />
             ))}
