@@ -10,6 +10,7 @@ export const urls = {
     login: '/login',
     logout: '/logout',
     list: '/users',
+    profilpage: '/profil',
     userpage: '/userPage'
   }
 };
