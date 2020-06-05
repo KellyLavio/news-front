@@ -5,7 +5,7 @@ import Articles from "./components/Articles/Articles";
 
 const MainContainer = () => {
   return (
-    <div className="container">
+    <div className="container-fluid">
       <>
         <div className="row">
           <div className="col p-2 titles">
