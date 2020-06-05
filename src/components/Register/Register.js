@@ -1,18 +1,15 @@
 import React from "react";
 import { useForm} from "react-hook-form";
-import { userRegister, 
-  // displayUserRegisterPopup 
-} from "../../utils/register-utils";
+import { userRegister } from "../../utils/register-utils";
 import RegisterErrors from "./RegisterErrors"
-import Nav from "../../Nav";
 import { useState } from "react";
 import history from "../../utils/history";
+import $ from "jquery";
 
 
 const Register = () => {
     const { register, errors, setError, handleSubmit } = useForm();
     const [loading, setLoading] = useState(false);
-    // $("#registersBtn").on("show.bs.toast", displayUserRegisterPopup());
     const registering = data => {
         setLoading(true);
 
@@ -26,9 +23,7 @@ const Register = () => {
             .then(e => {
                 setLoading(false);
                 history.push("/login");
-                // displayUserRegisterPopup();
-                // $("#registerBtn").toast("show");
-                alert("Inscription envoyée !");
+                $(".toast").toast("show");
             })
             .catch(e => {
                 setLoading(false);
@@ -39,14 +34,10 @@ const Register = () => {
 
   return (
     <>
-      <Nav />
       <h1 className="d-flex justify-content-center">Inscription</h1>
       <div className="container">
         <div className="row">
-          <form
-            style={{ width: "100%" }}
-            onSubmit={handleSubmit(registering)}
-          >
+          <form style={{ width: "100%" }} onSubmit={handleSubmit(registering)}>
             <div className="row d-flex justify-content-center">
               <div className="col-md-6">
                 <RegisterErrors errors={errors} />
@@ -122,16 +113,22 @@ const Register = () => {
               </div>
             </div>
             <div className="row d-flex justify-content-center">
-                {loading && (
-                  <button class="btn btn-primary" type="button" disabled>
-                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> Votre demande est en cours...
-                  </button>
-                )}
-                {!loading && (
-                  <button className="btn btn-primary" disabled={loading}>
-                    S'inscrire
-                  </button>
-                )}
+              {loading && (
+                <button className="btn btn-primary" type="button" disabled>
+                  <span
+                    className="spinner-grow spinner-grow-sm"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>{" "}
+                  Votre demande est en cours...
+                </button>
+              )}
+              {!loading && (
+                <button
+                  className="btn btn-primary" disabled={loading}>
+                  S'inscrire
+                </button>
+              )}
             </div>
           </form>
         </div>

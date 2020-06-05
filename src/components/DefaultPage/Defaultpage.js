@@ -1,5 +1,4 @@
 import React from 'react';
-import Nav from '../../Nav';
 import MainContainer from '../../MainContainer';
 
 import UserContext from '../../context/UserContext';
@@ -15,11 +14,12 @@ const DefaultPage = () => {
     }
 
     return (
-        <>
-        <Nav/>
+
         <MainContainer/>
-        </>
+
     )
 };
+
+
 
 export default DefaultPage;

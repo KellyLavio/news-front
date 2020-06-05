@@ -15,7 +15,7 @@ import UserPage from "./components/Users/UserPage";
 import ThemeContext from './context/ThemeContext';
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
-
+import Nav from "./Nav";
 
 const App = () => {
   const [isLogged, setIsLogged] = useState(
@@ -40,31 +40,63 @@ const App = () => {
         <UserContext.Provider
           value={{ isLogged, setIsLogged, username, setUsername }}
         >
-          <Router history={history}>
-            <div>
-              <Switch>
-                <Route exact path={urls.user.login} component={Login} />
-                <Route exact path={urls.user.register} component={Register} />
-                <PrivateRoute
-                  exact path={urls.user.userpage} component={UserPage}
-                />
-                <Route exact path="/" component={DefaultPage} />
-              </Switch>
-            </div>
-          </Router>
+          <div>
+            <Nav />
+            <Router history={history}>
+              <div
+                aria-live="polite"
+                aria-atomic="true"
+                style={{
+                  position: "relative",
+                  minHeight: "200px",
+                }}
+              >
+                <Switch>
+                  <Route exact path={urls.user.login} component={Login} />
+                  <Route exact path={urls.user.register} component={Register} />
+                  <PrivateRoute
+                    exact
+                    path={urls.user.userpage}
+                    component={UserPage}
+                  />
+                  <Route exact path="/" component={DefaultPage} />
+                </Switch>
+              </div>
+              <div
+                className="toast"
+                style={{
+                  position: "absolute",
+                  top: "0",
+                  right: "0",
+                  backgroundColor: "green",
+                  zIndex: "1021",
+                }}
+              >
+                <div className="toast-header">
+                  <img
+                    src={process.env.PUBLIC_URL + "/images/thumbs-up.png"}
+                    className="rounded mr-2"
+                    alt="thumbs-up"
+                    style={{ width: "25px", height: "25px" }}
+                  />
+                  <strong className="mr-auto">News Broadcaster</strong>
+                  <button
+                    type="button"
+                    className="ml-2 mb-1 close"
+                    data-dismiss="toast"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div className="toast-body">Inscription enregistrée !</div>
+              </div>
+            </Router>
+          </div>
         </UserContext.Provider>
       </ThemeContext.Provider>
     );
   }
-
-
-  // function Nav(props) {
-  //   return(
-  //    <ThemedButton onClick={props.ChangeTheme}>
-  //       Changer de théme
-  //     </ThemedButton>
-  //   ); 
-  // }
 
   export default App;
 
