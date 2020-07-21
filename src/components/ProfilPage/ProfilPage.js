@@ -14,7 +14,14 @@ const ProfilPage = () => {
       <div className="row w-100">
         <div className="col-md-6">
           <ul>
-            Réglages
+            <a
+              type="button"
+              href="/editerprofilpage"
+              className="btn btn-outline-light"
+              id="profil-btn"
+            >
+              Editer mon profil
+                  </a>
             <li>adresse e-mail</li>
             <li>mot de passe</li>
           </ul>
