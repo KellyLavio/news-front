@@ -19,7 +19,7 @@ const Articles = () => {
     }, []);
 
     return (
-        <div className="col-md-6 border border-top-0 border-bottom-0 pr-5 pl-5">
+        <div>
             {articles.map((article, index) => (
                 <ArticleItem key={index}
                     id={article.id}

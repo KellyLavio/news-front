@@ -3,11 +3,11 @@ import React, { useState } from "react";
 
 import { useEffect } from "react";
 import { getCategories } from "../../services/categoryService";
-import ArticlePreview from "../Articles/ArticlePreview";
+import Category from "./UserCategory";
 
 const UserFavoritesContainer = () => {
     const [categories, setCategories] = useState([]);
-    const [favoriteArticles, setFavoriteArticles] = useState([]);
+    
 
     useEffect(() => {
         getCategories()
@@ -15,24 +15,17 @@ const UserFavoritesContainer = () => {
                 setCategories(res.data["hydra:member"]);
             })
             .catch((err) => console.error(err))
-    },
+    }, []
     );
 
 
 
     return (
 
-        <div className="col">
-            {favoriteArticles.map((article, index) =>
-                <ArticlePreview key={index}
-                    id={article.id}
-                    title={article.title}
-                    url={article.url}
-                    description={article.description}
-                    date={article.date}
-                    source={article.source}
-                />
-            )
+        <div className="col-md-6 border border-top-0 border-bottom-0 pr-5 pl-5">
+            {categories.map((category, index) => (
+                <Category item={category} key={index} />
+            ))
             }
         </div>
     )

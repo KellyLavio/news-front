@@ -5,7 +5,7 @@ import Articles from "./components/Articles/Articles";
 
 const MainContainer = () => {
   return (
-    <div className="container-fluid" style={{position: "relative"}}>
+    <div className="container-fluid" style={{ position: "relative" }}>
       <>
         <div className="row">
           <div className="col p-2 titles">
@@ -14,7 +14,9 @@ const MainContainer = () => {
         </div>
         <div className="row">
           <div className="col"></div>
-          <Articles />
+          <div >
+            <Articles />
+          </div>
           <div className="col"></div>
         </div>
       </>
