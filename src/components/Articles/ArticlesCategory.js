@@ -2,14 +2,14 @@
 import React from "react";
 
 // dependencies
-import ArticlePreview from "./ArticlePreview";
+import ArticleItem from "./ArticleItem";
 
 const ArticlesCategory = ({items}) => {
 
     return (
         <div>
             {items.map((article, index) => (
-                <ArticlePreview key={index}
+                <ArticleItem key={index}
                     id={article.id}
                     title={article.title}
                     url={article.url}

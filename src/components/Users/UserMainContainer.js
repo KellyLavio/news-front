@@ -18,15 +18,16 @@ const UserMainContainer = () => {
                 <div className="row w-100">
                     <div className="col">
                         <div className="row d-flex justify-content-center">
-                            <h4>Notifications</h4>
+                            <h2 className="text-danger">Notifications</h2>
                         </div>
 
                     </div>
                     <UserFavoritesContainer />
                     <div className="col">
-                        <Articles />
+                            <h2 className="text-danger text-center">Infos générales</h2>
+                            <Articles />
                     </div>
-                    
+
 
                 </div>
             </>

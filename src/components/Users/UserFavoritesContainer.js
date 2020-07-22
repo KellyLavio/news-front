@@ -1,18 +1,16 @@
 // React
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-import { useEffect } from "react";
-import { getCategories } from "../../services/categoryService";
-import Category from "./UserCategory";
+import { getFavoriteCategories } from "../../services/categoryService";
+import UserCategories from "./UserCategories";
 
 const UserFavoritesContainer = () => {
-    const [categories, setCategories] = useState([]);
-    
+    const [favoriteCategories, setFavoriteCategories] = useState([]);
 
     useEffect(() => {
-        getCategories()
+        getFavoriteCategories()
             .then((res) => {
-                setCategories(res.data["hydra:member"]);
+                setFavoriteCategories(res.data["hydra:member"]);
             })
             .catch((err) => console.error(err))
     }, []
@@ -22,11 +20,14 @@ const UserFavoritesContainer = () => {
 
     return (
 
-        <div className="col-md-6 border border-top-0 border-bottom-0 pr-5 pl-5">
-            {categories.map((category, index) => (
-                <Category item={category} key={index} />
-            ))
-            }
+        <div className="col-md-6 border border-top-0 border-bottom-0 pr-5 pl-5 mr-4 ml-4">
+            <div className="row d-flex justify-content-center">
+                <h2 className="text-danger">Vos Actualités</h2>
+                {favoriteCategories.map((category, index) => (
+                    <UserCategories item={category} key={index} />
+                ))
+                }
+            </div>
         </div>
     )
 }

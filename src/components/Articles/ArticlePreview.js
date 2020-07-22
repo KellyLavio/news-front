@@ -30,6 +30,9 @@ const ArticlePreview = ({
                         <span className="badge badge-pill badge-info">
                             {source}
                         </span>
+                        <span className="badge badge-pill badge-primary">
+                            {category}
+                        </span>
                     </div>
                 </div>
             </div>

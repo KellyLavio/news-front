@@ -14,7 +14,7 @@ const MainContainer = () => {
         </div>
         <div className="row">
           <div className="col"></div>
-          <div >
+          <div className="col-md-6">
             <Articles />
           </div>
           <div className="col"></div>
