@@ -16,6 +16,8 @@ import ThemeContext from './context/ThemeContext';
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Nav from "./Nav";
+import ProfilPage from "./components/ProfilPage/ProfilPage";
+import EditerProfilPage from "./components/ProfilPage/EditerProfilPage";
 
 const App = () => {
   const [isLogged, setIsLogged] = useState(
@@ -51,6 +53,16 @@ const App = () => {
                 <Switch>
                   <Route exact path={urls.user.login} component={Login} />
                   <Route exact path={urls.user.register} component={Register} />
+                  <PrivateRoute
+                    exact
+                    path={urls.user.editerprofilpage}
+                    component={EditerProfilPage}
+                  />
+                  <PrivateRoute
+                    exact
+                    path={urls.user.profilpage}
+                    component={ProfilPage}
+                  />
                   <PrivateRoute
                     exact
                     path={urls.user.userpage}
