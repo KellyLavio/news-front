@@ -2,10 +2,10 @@ import * as constants from './constants';
 
 const login_uri = `${constants.apiPlatformApiEndpoint}/users`;
 
-export const userRegister = (name, firstname, email, password, login) => {
+export const userRegister = (login, firstname, name, email, password) => {
     const request = new Request(`${login_uri}`, {
         method: 'POST',
-        body: JSON.stringify({ name, firstname, email, password, login }),
+        body: JSON.stringify({ login, firstname, name, email, password}),
         headers: new Headers({
             'Content-Type': 'application/ld+json'
         }),

@@ -13,7 +13,7 @@ const Register = () => {
     const registering = data => {
         setLoading(true);
 
-        userRegister(data.name, data.firstname, data.password, data.login, data.email)
+        userRegister(data.login, data.firstname, data.name, data.email, data.password)
             .then(response => {
                 if (response.status < 200 || response.status >= 300)
                     throw new Error(response);
@@ -52,7 +52,7 @@ const Register = () => {
                   className="form-control"
                   id="login"
                   ref={register({ required: true })}
-                  aria-describedby="emailHelp"
+                  aria-describedby="loginHelp"
                   placeholder="Entrer votre login"
                 />
               </div>
