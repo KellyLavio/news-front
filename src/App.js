@@ -55,7 +55,7 @@ const App = () => {
                   <Route exact path={urls.user.register} component={Register} />
                   <PrivateRoute
                     exact
-                    path={urls.user.editerProfilPage}
+                    path={urls.user.editerprofilpage}
                     component={EditerProfilPage}
                   />
                   <PrivateRoute

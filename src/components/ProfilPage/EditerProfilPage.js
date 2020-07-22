@@ -119,15 +119,26 @@ const EditerProfilPage = () => {
                     className="spinner-grow spinner-grow-sm"
                     role="status"
                     aria-hidden="true"
-                  ></span>{" "}
+                  ></span>
                   Votre demande est en cours...
                 </button>
               )}
               {!loading && (
+                <div>
                 <button
                   className="btn btn-primary" disabled={loading}>
                   Mettre à jour
                 </button>
+                <button
+                  type="button"
+                  className="btn btn-danger"
+                  onClick={(e) => {
+                    history.push("/profil");
+                  }}
+                >
+                Retour
+                </button>
+                </div>
               )}
             </div>
           </form>
