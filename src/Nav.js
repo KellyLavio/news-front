@@ -53,36 +53,48 @@ class Nav extends Component {
                 </button>
               </form>
               {value.isLogged ? (
-                <button
-                  type="button"
-                  className="btn btn-light"
-                  onClick={(e) => {
-                    localStorage.clear();
-                    history.push("/");
-                    value.isLogged = false;
-                  }}
-                >
-                  Déconnexion
-                </button>
+                <div>
+                  {/* <div className="text-white">Prénom NOM</div> */}
+                  <a
+                    type="button"
+                    href="/profil"
+                    className="btn btn-outline-light"
+                    id="profil-btn"
+                  >
+                    Mon Profil
+                  </a>
+                  <button
+                    type="button"
+                    className="btn btn-light"
+                    onClick={(e) => {
+                      localStorage.clear();
+                      history.push("/");
+                      value.isLogged = false;
+                    }}
+                  >
+                    Déconnexion
+                  </button>
+                </div>
               ) : (
-                  <>
-                    <a
-                      type="button"
-                      href="/register"
-                      className="btn btn-outline-light"
-                      id="inscription-btn">
-                      Inscription
+                <>
+                  <a
+                    type="button"
+                    href="/register"
+                    className="btn btn-outline-light"
+                    id="inscription-btn"
+                  >
+                    Inscription
                   </a>
-                    <a
-                      type="button"
-                      href="/login"
-                      className="btn btn-light"
-                      id="connexion-btn"
-                    >
-                      Connexion
+                  <a
+                    type="button"
+                    href="/login"
+                    className="btn btn-light"
+                    id="connexion-btn"
+                  >
+                    Connexion
                   </a>
-                  </>
-                )}
+                </>
+              )}
             </div>
           </nav>
         );
