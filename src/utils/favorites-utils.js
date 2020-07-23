@@ -1,11 +1,19 @@
 import * as constants from './constants';
 
-const login_uri = `${constants.apiPlatformApiEndpoint}/categories`;
-
-export const userRegister = (article) => {
-    const request = new Request(`${login_uri}`, {
+export const userCategories = () => {
+    const request = new Request(`${constants.CATEGORY_ENDPOINT}`, {
         method: 'GET',
-        body: JSON.stringify({ article }),
+        headers: new Headers({
+            'Content-Type': 'application/ld+json'
+        }),
+    });
+
+    return fetch(request);
+}
+
+export const userFavoriteCategories = () => {
+    const request = new Request(`${constants.FAVORITE_CATEGORIES_ENDPOINT}`, {
+        method: 'GET',
         headers: new Headers({
             'Content-Type': 'application/ld+json'
         }),

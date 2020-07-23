@@ -1,13 +1,14 @@
 // React
 import React from "react";
 
+import UserFavoritesContainer from "./UserFavoritesContainer";
 import Articles from "../Articles/Articles";
 
 const UserMainContainer = () => {
-    
+
 
     return (
-        <div className="container-fluid">
+        <div className="container-fluid" style={{ position: "relative" }}>
             <>
                 <div className="row w-100">
                     <div className="col p-2 titles">
@@ -17,16 +18,17 @@ const UserMainContainer = () => {
                 <div className="row w-100">
                     <div className="col">
                         <div className="row d-flex justify-content-center">
-                            <h4>Notifications</h4>
+                            <h2 className="text-danger">Notifications</h2>
                         </div>
-                        
+
                     </div>
-                    <Articles />
+                    <UserFavoritesContainer />
                     <div className="col">
-                        <div className="row d-flex justify-content-center">
-                            <button type="button" className="btn btn-outline-secondary">Favoris</button>
-                        </div>
+                            <h2 className="text-danger text-center">Infos générales</h2>
+                            <Articles />
                     </div>
+
+
                 </div>
             </>
         </div>

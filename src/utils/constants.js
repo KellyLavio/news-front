@@ -1,6 +1,8 @@
 export const apiPlatformApiEndpoint = `${process.env.REACT_APP_API_ENTRYPOINT}/api`;
 export const ARTICLE_ENDPOINT = apiPlatformApiEndpoint + '/articles';
 export const CATEGORY_ENDPOINT = apiPlatformApiEndpoint + '/categories';
+export const FAVORITE_CATEGORIES_ENDPOINT = apiPlatformApiEndpoint + '/favorite_categories';
+export const FAVORITE_SOURCES_ENDPOINT = apiPlatformApiEndpoint + '/favorite_sources';
 
 export const tokenName = 'front-user';
 
