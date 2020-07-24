@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { userRegister } from "../../utils/register-utils";
+import { editProfil } from "../../utils/editProfil-utils";
 import RegisterErrors from "../Register/RegisterErrors"
 import { useState } from "react";
 import history from "../../utils/history";
@@ -13,7 +13,7 @@ const EditerProfilPage = () => {
   const registering = data => {
     setLoading(true);
 
-    userRegister(data.name, data.firstname, data.password, data.login, data.email)
+    editProfil(data.name, data.firstname, data.password, data.login, data.email)
       .then(response => {
         if (response.status < 200 || response.status >= 300)
           throw new Error(response);
