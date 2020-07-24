@@ -1,3 +1,39 @@
+# News Broadcaster
+
+
+Cette application vous permet de suivre l'actualité en mettant à disposition les derniers articles de la presse écrite. Vous pouvez, en personnalisant votre profil, filtrer vos sources et/ou sujets favoris ainsi que programmer vos alertes.     
+</br>
+
+## Prérequis
+Avant de continuer, assurez-vous de:
+
+* avoir installé React
+* utiliser yarn
+* lancer WAMP/MAMP/LAMP
+
+Yarn
+``` bash
+yarn install
+```
+Lancer le serveur
+``` bash
+yarn start
+```
+</br>
+
+## Récupérez la partie back de l'application
+https://github.com/KellyGauthier/news-api
+</br>  
+
+## Fonctionalités
+
+### Afficher les favoris dans le news feed principal
+
+![news](../news-api/images/screenshot.png "news feed favoris")
+
+Il est possible de selectionner son news feed principal en choisissant d'afficher soit les articles relatifs aux favoris de l'utilisateur, soit le news feed par défaut.
+</br>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
