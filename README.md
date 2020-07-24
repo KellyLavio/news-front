@@ -29,7 +29,7 @@ https://github.com/KellyGauthier/news-api
 
 ### Afficher les favoris dans le news feed principal
 
-![news](../news-front/images/screenshot.png "news feed favoris")
+![news](images/screenshot.png "news feed favoris")
 
 Il est possible de selectionner son news feed principal en choisissant d'afficher soit les articles relatifs aux favoris de l'utilisateur, soit le news feed par défaut.
 </br>
