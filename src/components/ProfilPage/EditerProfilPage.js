@@ -1,40 +1,40 @@
 import React from "react";
-import { useForm} from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { userRegister } from "../../utils/register-utils";
-import RegisterErrors from "./RegisterErrors"
+import RegisterErrors from "../Register/RegisterErrors"
 import { useState } from "react";
 import history from "../../utils/history";
 import $ from "jquery";
 
 
-const Register = () => {
-    const { register, errors, setError, handleSubmit } = useForm();
-    const [loading, setLoading] = useState(false);
-    const registering = data => {
-        setLoading(true);
+const EditerProfilPage = () => {
+  const { register, errors, setError, handleSubmit } = useForm();
+  const [loading, setLoading] = useState(false);
+  const registering = data => {
+    setLoading(true);
 
-        userRegister(data.login, data.firstname, data.name, data.email, data.password)
-            .then(response => {
-                if (response.status < 200 || response.status >= 300)
-                    throw new Error(response);
+    userRegister(data.name, data.firstname, data.password, data.login, data.email)
+      .then(response => {
+        if (response.status < 200 || response.status >= 300)
+          throw new Error(response);
 
-                return response.json();
-            })
-            .then(e => {
-                setLoading(false);
-                history.push("/login");
-                $(".toast").toast("show");
-            })
-            .catch(e => {
-                setLoading(false);
-                setError("apiServer", "connection", "Une erreur est survenue");
-            });
-    };
+        return response.json();
+      })
+      .then(e => {
+        setLoading(false);
+        history.push("/profil/edit");
+        $(".toast").toast("show");
+      })
+      .catch(e => {
+        setLoading(false);
+        setError("apiServer", "connection", "Une erreur est survenue");
+      });
+  };
 
 
   return (
     <>
-      <h1 className="d-flex justify-content-center">Inscription</h1>
+      <h1 className="d-flex justify-content-center">Editer mes informations</h1>
       <div className="container">
         <div className="row">
           <form style={{ width: "100%" }} onSubmit={handleSubmit(registering)}>
@@ -52,7 +52,7 @@ const Register = () => {
                   className="form-control"
                   id="login"
                   ref={register({ required: true })}
-                  aria-describedby="loginHelp"
+                  aria-describedby="emailHelp"
                   placeholder="Entrer votre login"
                 />
               </div>
@@ -119,15 +119,26 @@ const Register = () => {
                     className="spinner-grow spinner-grow-sm"
                     role="status"
                     aria-hidden="true"
-                  ></span>{" "}
+                  ></span>
                   Votre demande est en cours...
                 </button>
               )}
               {!loading && (
+                <div>
                 <button
                   className="btn btn-primary" disabled={loading}>
-                  S'inscrire
+                  Mettre à jour
                 </button>
+                <button
+                  type="button"
+                  className="btn btn-danger"
+                  onClick={(e) => {
+                    history.push("/profil");
+                  }}
+                >
+                Retour
+                </button>
+                </div>
               )}
             </div>
           </form>
@@ -137,4 +148,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default EditerProfilPage;
