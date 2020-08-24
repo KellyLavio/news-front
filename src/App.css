@@ -1,0 +1,21 @@
+/* Nav */
+#connexion-btn:hover {
+  background-color: transparent;
+    color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
+
+.titles {
+  display: flex;
+  justify-content: center;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal {
+  top: 20%;
+}

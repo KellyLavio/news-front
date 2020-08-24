@@ -6,10 +6,18 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
+    "better-react-spinkit": "^2.0.4",
     "bootstrap": "^4.4.1",
+    "jquery": "^3.5.1",
+    "moment": "^2.25.3",
     "node-sass": "^4.14.1",
+    "popper.js": "^1.16.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-hook-form": "^5.7.2",
+    "react-moment": "^0.9.7",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1"
   },
   "scripts": {
