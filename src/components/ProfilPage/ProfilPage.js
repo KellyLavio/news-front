@@ -1,8 +1,22 @@
 // React
-import React from "react";
-// dependencies
+import React, { useState } from "react";
+import { useEffect } from "react";
+import { getPersonalData } from "../../services/profilService";
+import PersonnalDataForm from "./PersonnalDataForm";
+
 
 const ProfilPage = () => {
+  const [personnalData, setPersonnalData] = useState([]);
+
+  useEffect(() => {
+    getPersonalData()
+      .then((res) => {
+        setPersonnalData(res.data);
+      })
+      .catch((err) => console.error(err));
+  }, []
+  );
+
 
   return (
     <div className="container-fluid">
@@ -12,26 +26,17 @@ const ProfilPage = () => {
         </div>
       </div>
       <div className="row w-100" style={{ display: 'flex', justifyContent: 'center' }}>
-        <div className="col-md-6">
-          <ul>
-            <li><h3>Login</h3><p>Adam1</p></li>
-            <li><h3>Prénom</h3><p>Adam</p></li>
-            <li><h3>Nom de Famille</h3><p>First</p></li>
-            <li><h3>E-mail</h3><p>adam.first@gmail.com</p></li>
-            <li><h3>Mot de passe</h3><p>***</p></li>
-            <p>
-              <a
-                type="button"
-                href="/profil/edit"
-                className="btn btn-outline-dark"
-                id="profil-btn"
-              >
-                Editer mon profil
-              </a>
-            </p>
-          </ul>
+            <div className="col-md-6">
+                <h4>Nom</h4>
+                <p>{personnalData.name}</p>
+                <h4>Prénom</h4>
+                <p>{personnalData.firstname}</p>
+                <h4>Login</h4>
+                <p>{personnalData.login}</p>
+                <h4>Email</h4>
+                <p>{personnalData.email}</p>
+            </div>
         </div>
-      </div>
     </div>
   );
 };
