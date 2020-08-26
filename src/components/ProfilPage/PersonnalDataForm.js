@@ -24,7 +24,7 @@ const PersonnalDataForm = ({
                 className="btn btn-outline-primary"
                 id="profil-btn"
               >
-                Editer mon profil
+                Modifier mon profil
               </a>
             </div>
         </div>

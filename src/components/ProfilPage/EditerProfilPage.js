@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { userRegister } from "../../utils/register-utils";
 import RegisterErrors from "../Register/RegisterErrors"
 import { useState } from "react";
 import history from "../../utils/history";
 import $ from "jquery";
+import { getPersonalData } from "../../services/profilService";
 
 
 const EditerProfilPage = () => {
   const { register, errors, setError, handleSubmit } = useForm();
   const [loading, setLoading] = useState(false);
+  const [personnalData, setPersonnalData] = useState([]);
+
   const registering = data => {
     setLoading(true);
 
@@ -31,6 +34,15 @@ const EditerProfilPage = () => {
       });
   };
 
+  useEffect(() => {
+    getPersonalData()
+      .then((res) => {
+        setPersonnalData(res.data);
+      })
+      .catch((err) => console.error(err));
+  }, []
+  );
+
 
   return (
     <>
@@ -43,37 +55,10 @@ const EditerProfilPage = () => {
                 <RegisterErrors errors={errors} />
               </div>
             </div>
+            
             <div className="form-group d-flex justify-content-center">
               <div className="col-md-6">
-                <label htmlFor="login">Login</label>
-                <input
-                  type="text"
-                  name="login"
-                  className="form-control"
-                  id="login"
-                  ref={register({ required: true })}
-                  aria-describedby="emailHelp"
-                  placeholder="Entrer votre login"
-                />
-              </div>
-            </div>
-            <div className="form-group d-flex justify-content-center">
-              <div className="col-md-6">
-                <label htmlFor="firstname">Prénom</label>
-                <input
-                  type="text"
-                  name="firstname"
-                  className="form-control"
-                  id="firstname"
-                  ref={register({ required: true })}
-                  aria-describedby="firstNameHelp"
-                  placeholder="Entrer votre prénom"
-                />
-              </div>
-            </div>
-            <div className="form-group d-flex justify-content-center">
-              <div className="col-md-6">
-                <label htmlFor="name">Nom de Famille</label>
+                <label htmlFor="name" className="text-primary">Nom de Famille</label>
                 <input
                   type="text"
                   name="name"
@@ -81,13 +66,44 @@ const EditerProfilPage = () => {
                   id="name"
                   ref={register({ required: true })}
                   aria-describedby="nameHelp"
-                  placeholder="Entrer votre nom de famille"
+                  defaultValue = {personnalData.name}
                 />
               </div>
             </div>
+
             <div className="form-group d-flex justify-content-center">
               <div className="col-md-6">
-                <label htmlFor="email">E-mail</label>
+                <label htmlFor="firstname" className="text-primary">Prénom</label>
+                <input
+                  type="text"
+                  name="firstname"
+                  className="form-control"
+                  id="firstname"
+                  ref={register({ required: true })}
+                  aria-describedby="firstNameHelp"
+                  defaultValue = {personnalData.firstname}
+                />
+              </div>
+            </div>
+
+            <div className="form-group d-flex justify-content-center">
+              <div className="col-md-6">
+                <label htmlFor="login" className="text-primary">Login</label>
+                <input
+                  type="text"
+                  name="login"
+                  className="form-control"
+                  id="login"
+                  ref={register({ required: true })}
+                  aria-describedby="emailHelp"
+                  defaultValue = {personnalData.login}
+                />
+              </div>
+            </div>
+
+            <div className="form-group d-flex justify-content-center">
+              <div className="col-md-6">
+                <label htmlFor="email" className="text-primary">E-mail</label>
                 <input
                   type="email"
                   name="email"
@@ -95,23 +111,11 @@ const EditerProfilPage = () => {
                   id="email"
                   ref={register({ required: true })}
                   aria-describedby="emailHelp"
-                  placeholder="Entrer votre e-mail"
+                  defaultValue = {personnalData.email}
                 />
               </div>
             </div>
-            <div className="form-group d-flex justify-content-center">
-              <div className="col-md-6">
-                <label htmlFor="password">Mot de passe</label>
-                <input
-                  type="password"
-                  name="password"
-                  className="form-control"
-                  id="password"
-                  ref={register({ required: true })}
-                  placeholder="Mot de passe"
-                />
-              </div>
-            </div>
+            
             <div className="row d-flex justify-content-center">
               {loading && (
                 <button className="btn btn-primary" type="button" disabled>

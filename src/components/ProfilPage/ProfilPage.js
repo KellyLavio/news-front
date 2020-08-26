@@ -1,6 +1,5 @@
 // React
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { getPersonalData } from "../../services/profilService";
 import PersonnalDataForm from "./PersonnalDataForm";
 
