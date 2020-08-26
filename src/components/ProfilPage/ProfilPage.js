@@ -25,18 +25,12 @@ const ProfilPage = () => {
           <h1>Mon Profil</h1>
         </div>
       </div>
-      <div className="row w-100" style={{ display: 'flex', justifyContent: 'center' }}>
-            <div className="col-md-6">
-                <h4>Nom</h4>
-                <p>{personnalData.name}</p>
-                <h4>Prénom</h4>
-                <p>{personnalData.firstname}</p>
-                <h4>Login</h4>
-                <p>{personnalData.login}</p>
-                <h4>Email</h4>
-                <p>{personnalData.email}</p>
-            </div>
-        </div>
+      <PersonnalDataForm 
+        name = {personnalData.name}
+        firstname = {personnalData.firstname}
+        login = {personnalData.login}
+        email = {personnalData.email}
+      />
     </div>
   );
 };

@@ -8,16 +8,24 @@ const PersonnalDataForm = ({
     email
 }) => {
     return (
-        <div className="row w-100" style={{ display: 'flex', justifyContent: 'center' }}>
-            <div className="col-md-6">
-                <h4>Nom</h4>
+        <div className="row w-100 d-flex justify-content-center">
+            <div className="col-md-4">
+                <h4 className="text-primary">Nom</h4>
                 <p>{name}</p>
-                <h4>Prénom</h4>
+                <h4 className="text-primary">Prénom</h4>
                 <p>{firstname}</p>
-                <h4>Login</h4>
+                <h4 className="text-primary">Login</h4>
                 <p>{login}</p>
-                <h4>Email</h4>
+                <h4 className="text-primary">Email</h4>
                 <p>{email}</p>
+                <a
+                type="button"
+                href="/profil/edit"
+                className="btn btn-outline-primary"
+                id="profil-btn"
+              >
+                Editer mon profil
+              </a>
             </div>
         </div>
     );
