@@ -46,7 +46,7 @@ const EditerProfilPage = () => {
 
   return (
     <>
-      <h1 className="d-flex justify-content-center">Editer mes informations</h1>
+      <h1 className="d-flex justify-content-center">Modifier mes informations personnelles</h1>
       <div className="container">
         <div className="row">
           <form style={{ width: "100%" }} onSubmit={handleSubmit(registering)}>

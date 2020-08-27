@@ -8,8 +8,9 @@ const PersonnalDataForm = ({
     email
 }) => {
     return (
-        <div className="row w-100 d-flex justify-content-center">
+        <div className="row w-100 d-flex justify-content-center mt-5 mb-4">
             <div className="col-md-4">
+                <h2 className="text-center text-info">Mes informations personnelles</h2>
                 <h4 className="text-primary">Nom</h4>
                 <p>{name}</p>
                 <h4 className="text-primary">Prénom</h4>
@@ -19,12 +20,12 @@ const PersonnalDataForm = ({
                 <h4 className="text-primary">Email</h4>
                 <p>{email}</p>
                 <a
-                type="button"
-                href="/profil/edit"
-                className="btn btn-outline-primary"
-                id="profil-btn"
-              >
-                Modifier mon profil
+                    type="button"
+                    href="/profil/edit"
+                    className="btn btn-outline-primary"
+                    id="profil-btn"
+                >
+                    Modifier mes informations personnelles
               </a>
             </div>
         </div>
