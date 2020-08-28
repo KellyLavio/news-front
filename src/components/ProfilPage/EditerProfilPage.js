@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import RegisterErrors from "../Register/RegisterErrors"
-import { useState } from "react";
 import history from "../../utils/history";
 import $ from "jquery";
 import { getPersonalData } from "../../services/profilService";
@@ -154,7 +153,7 @@ const EditerProfilPage = () => {
                     <button
                       className="btn btn-primary" disabled={formLoading}>
                       Mettre à jour
-                </button>
+                    </button>
                     <button
                       type="button"
                       className="btn btn-danger"

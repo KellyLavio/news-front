@@ -6,18 +6,18 @@ import { tokenName, urls } from "./utils/constants";
 import { Router, Route, Switch } from "react-router-dom";
 import { PrivateRoute } from "./utils/PrivateRoute";
 import history from "./utils/history";
+import ThemeContext from './context/ThemeContext';
 
 import DefaultPage from "./components/DefaultPage/Defaultpage";
-
-import "./App.css";
 import UserPage from "./components/Users/UserPage";
-
-import ThemeContext from './context/ThemeContext';
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Nav from "./Nav";
 import ProfilPage from "./components/ProfilPage/ProfilPage";
 import EditerProfilPage from "./components/ProfilPage/EditerProfilPage";
+import EditFavorites from "./components/ProfilPage/EditFavorites";
+
+import "./App.css";
 
 const App = () => {
   const [isLogged, setIsLogged] = useState(
@@ -53,6 +53,10 @@ const App = () => {
                 <Switch>
                   <Route exact path={urls.user.login} component={Login} />
                   <Route exact path={urls.user.register} component={Register} />
+                  <PrivateRoute
+                    exact path={urls.user.editfavorites}
+                    component={EditFavorites}
+                  />
                   <PrivateRoute
                     exact
                     path={urls.user.editerprofilpage}

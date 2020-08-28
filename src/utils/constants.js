@@ -1,9 +1,13 @@
 export const apiPlatformApiEndpoint = `${process.env.REACT_APP_API_ENTRYPOINT}/api`;
+
 export const ARTICLE_ENDPOINT = apiPlatformApiEndpoint + '/articles';
 export const CATEGORY_ENDPOINT = apiPlatformApiEndpoint + '/categories';
+export const SOURCE_ENDPOINT = apiPlatformApiEndpoint + '/sources'
 export const FAVORITE_CATEGORIES_ENDPOINT = apiPlatformApiEndpoint + '/favorite_categories';
 export const FAVORITE_SOURCES_ENDPOINT = apiPlatformApiEndpoint + '/favorite_sources';
 export const PERSONNAL_DATA_ENDPOINT = apiPlatformApiEndpoint + '/infos';
+export const UPDATE_PROFIL_ENDPOINT = apiPlatformApiEndpoint +'/updateProfil';
+
 
 export const FAVORITE_SOURCE = 'FavoriteSources';
 export const FAVORITE_CATEGORY = 'FavoriteCategories';
@@ -19,5 +23,6 @@ export const urls = {
     editerprofilpage: '/profil/edit',
     profilpage: '/profil',
     userpage: '/userPage',
+    editfavorites: '/profil/favorites'
   }
 };

@@ -1,4 +1,4 @@
-import Axios from "axios"
+import Axios from "axios";
 import { FAVORITE_CATEGORIES_ENDPOINT, FAVORITE_SOURCES_ENDPOINT } from "../utils/constants"
 
 

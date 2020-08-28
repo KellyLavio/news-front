@@ -29,6 +29,14 @@ const FavoritesData = ({ favorites }) => {
                     })
                     }
                 </ul>
+                <a
+                    type="button"
+                    href="/profil/favorites"
+                    className="btn btn-outline-primary"
+                    id="profil-btn"
+                >
+                    Modifier mes favoris
+              </a>
             </div>
         </div>
     )
