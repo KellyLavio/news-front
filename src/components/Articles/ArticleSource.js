@@ -15,6 +15,7 @@ const ArticlesCategory = ({items}) => {
                     url={article.url}
                     description={article.description}
                     date={article.date}
+                    comment={article.comment}
                 />
             ))}
         </div>
