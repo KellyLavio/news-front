@@ -44,7 +44,6 @@ const Articles = () => {
                     date={article.date}
                     source={article.source.name}
                     category={article.category.name}
-                    comments={article.comments}
                 />
                 )
             ))}

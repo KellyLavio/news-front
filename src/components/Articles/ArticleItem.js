@@ -1,13 +1,9 @@
-import { React } from 'react';
+import React from 'react';
 import "../../App.css";
-
-import CommentBox from './ArticleComment';
-
 
 var moment = require('moment');
 require("moment/locale/fr");
 moment.locale("fr");
-
 
 
 const ArticleItem = ({
@@ -18,7 +14,7 @@ const ArticleItem = ({
     date,
     source,
     category,
-    comments,
+    comments
 }) => {
     return (
         <div className="row d-flex justify-content-center mb-4" key={id}
@@ -53,7 +49,7 @@ const ArticleItem = ({
                         </span>
                     </div>
                 </div>
-            </div>
+                </div>
         </div>
     );
 };
