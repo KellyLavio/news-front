@@ -1,21 +1,29 @@
 import React, { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
 import history from "../../utils/history";
-import { getCategories, getSources } from "../../services/dataService";
+import { getCategories, getSources } from "../../services/favoriteService";
 import { getPersonalData } from "../../services/profilService";
 import { FAVORITE_SOURCE, FAVORITE_CATEGORY } from "../../utils/constants";
+import { updateFavorites } from "../../utils/edit-favorites-utils";
+import { getValue } from "../../utils/favorites-utils";
 
 const EditFavorites = () => {
+    const { register, errors, setError, handleSubmit } = useForm();
     const [categories, setCategories] = useState([]);
     const [sources, setSources] = useState([]);
     const [personnalFavorites, setPersonnalFavorites] = useState([]);
     const [favoritesLoading, setFavoritesLoading] = useState(true);
     const [categoryLoading, setCategoryLoading] = useState(true);
     const [sourceLoading, setSourceLoading] = useState(true);
-    const [loading, setLoading] = useState(false);
+    const [formLoading, setFormLoading] = useState(false);
+
 
     const registering = data => {
-        setLoading(true);
+        setFormLoading(true);
         
+        data.favorites.categories.map((category, index) => {
+            console.log(getValue(category));
+        })   
     }
 
     useEffect(() => {
@@ -54,7 +62,7 @@ const EditFavorites = () => {
             </div>
             <div className="row w-100 d-flex justify-content-center">
                 <div className="col-md-6">
-                    <form style={{ width: "100%" }}>
+                    <form style={{ width: "100%" }} onSubmit={handleSubmit(registering)}>
                         <div className="row d-flex justify-content-center">
                             <div className="col-md-6">
 
@@ -84,27 +92,37 @@ const EditFavorites = () => {
                                             personnalFavorites.map((favoris, index) => (
 
                                                 categories.map((category, index) => {
-                                                    if (favoris["@type"] === FAVORITE_CATEGORY && favoris.category.name === category.name) {
-                                                        return (
-                                                            <div className="row">
-                                                                <input className="form-check-input" type="checkbox" id={index} name={category.name} checked />
-                                                                <label className="form-check-label" for={category.name}>
-                                                                    {category.name}
-                                                                </label>
-                                                            </div>
-                                                        )
-                                                    } else if (favoris["@type"] === FAVORITE_CATEGORY && favoris.category.name !== category.name) {
-                                                        return (
-                                                            <div className="row">
-                                                                <input className="form-check-input" type="checkbox" id={index} name={category.name} />
-                                                                <label className="form-check-label" for={category.name}>
-                                                                    {category.name}
-                                                                </label>
-                                                            </div>
-                                                        )
+                                                    if (favoris["@type"] === FAVORITE_CATEGORY) {
+                                                        if (favoris.category.name === category.name) {
+                                                            return (
+                                                                <div className="row">
+                                                                    <input className="form-check-input"
+                                                                        type="checkbox"
+                                                                        id={index}
+                                                                        name={category.name}
+                                                                        defaultChecked={true} />
+                                                                    <label className="form-check-label" for={category.name}>
+                                                                        {category.name}
+                                                                    </label>
+                                                                </div>
+                                                            )
+                                                        } else {
+                                                            return (
+                                                                <div className="row">
+                                                                    <input className="form-check-input"
+                                                                        type="checkbox"
+                                                                        id={index}
+                                                                        ref={register()}
+                                                                        name="favorites[categories]"
+                                                                        value={category["@id"]} />
+                                                                    <label className="form-check-label" for={category.name}>
+                                                                        {category.name}
+                                                                    </label>
+                                                                </div>
+                                                            )
+                                                        }
                                                     }
                                                     return null;
-
                                                 })
 
 
@@ -137,7 +155,11 @@ const EditFavorites = () => {
                                                     if (favoris["@type"] === FAVORITE_SOURCE && favoris.source.name === source.name) {
                                                         return (
                                                             <div className="row">
-                                                                <input className="form-check-input" type="checkbox" id={index} name={source.name} checked />
+                                                                <input className="form-check-input"
+                                                                    type="checkbox"
+                                                                    id={index}
+                                                                    name={source.name}
+                                                                    checked />
                                                                 <label className="form-check-label" for={index}>
                                                                     {source.name}
                                                                 </label>
@@ -146,7 +168,10 @@ const EditFavorites = () => {
                                                     } else if (favoris["@type"] === FAVORITE_SOURCE && favoris.source.name !== source.name) {
                                                         return (
                                                             <div className="row">
-                                                                <input className="form-check-input" type="checkbox" id={index} name={source.name} />
+                                                                <input className="form-check-input"
+                                                                    type="checkbox"
+                                                                    id={index}
+                                                                    name={source.name} />
                                                                 <label className="form-check-label" for={index}>
                                                                     {source.name}
                                                                 </label>
@@ -168,10 +193,33 @@ const EditFavorites = () => {
                         </div>
                         <div className="row d-flex justify-content-center">
                             <div>
-                                <button className="btn btn-primary">Mettre à jour</button>
-                                <button className="btn btn-danger" onClick={(e) => {
-                                    history.push("/profil");
-                                }}>Retour</button>
+                                {formLoading && (
+                                    <button className="btn btn-primary" type="button" disabled>
+                                        <span
+                                            className="spinner-grow spinner-grow-sm"
+                                            role="status"
+                                            aria-hidden="true"
+                                        ></span>
+                                        Votre demande est en cours...
+                                    </button>
+                                )}
+                                {!formLoading && (
+                                    <div>
+                                        <button
+                                            className="btn btn-primary" disabled={formLoading}>
+                                            Mettre à jour
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className="btn btn-danger"
+                                            onClick={(e) => {
+                                                history.push("/profil");
+                                            }}
+                                        >
+                                            Retour
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </form>

@@ -4,7 +4,7 @@ import React from "react";
 // dependencies
 import ArticleItem from "./ArticleItem";
 
-const ArticlesCategory = ({items}) => {
+const ArticlesCategory = ({ items }) => {
 
     return (
         <div>
