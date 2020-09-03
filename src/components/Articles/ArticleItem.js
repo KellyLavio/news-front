@@ -13,7 +13,8 @@ const ArticleItem = ({
     description,
     date,
     source,
-    category
+    category,
+    comments
 }) => {
     return (
         <div className="row d-flex justify-content-center mb-4" key={id}
@@ -48,7 +49,7 @@ const ArticleItem = ({
                         </span>
                     </div>
                 </div>
-            </div>
+                </div>
         </div>
     );
 };
