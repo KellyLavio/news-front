@@ -51,7 +51,7 @@ const Articles = () => {
                             description={article.description}
                             date={article.date}
                             source={article.source.name}
-                            category={article.category.name}
+                            category={article.source.category.name}
                         />
                     ) : (
                             <ArticleItem key={index}
@@ -61,7 +61,7 @@ const Articles = () => {
                                 description={article.description}
                                 date={article.date}
                                 source={article.source.name}
-                                category={article.category.name}
+                                category={article.source.category.name}
                             />
                         )
                 ))
