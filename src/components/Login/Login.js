@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import history from '../../utils/history';
-// import user from "../Users/Users";
 import login from "../../utils/login-utils";
 import LoginErrors from "./LoginErrors";
 import UserContext from "../../context/UserContext";

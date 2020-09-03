@@ -5,7 +5,7 @@ import React from "react";
 import ArticleItem from "./ArticleItem";
 import CommentBox from "../ProfilPage/CommentBox";
 
-const ArticlesCategory = ({items}) => {
+const ArticlesCategory = ({ items }) => {
 
     return (
         <div>
