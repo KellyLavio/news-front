@@ -10,9 +10,9 @@ const FavoritesData = ({ favorites }) => {
                 <h2 className="text-center text-info">Mes favoris</h2>
                 <h4 className="text-primary">Catégories</h4>
                 <ul>
-                    {favorites.map((favoris, index) => {
+                    {favorites.map((favoris) => {
                         if (favoris["@type"] === FAVORITE_CATEGORY) {
-                            return <li>{favoris.category.name}</li>
+                            return <li key={favoris.category.id}>{favoris.category.name}</li>
                         }
                         return null;
                     })
@@ -21,9 +21,9 @@ const FavoritesData = ({ favorites }) => {
 
                 <h4 className="text-primary">Sources</h4>
                 <ul>
-                    {favorites.map((favoris, index) => {
+                    {favorites.map((favoris) => {
                         if (favoris["@type"] === FAVORITE_SOURCE) {
-                            return <li>{favoris.source.name}</li>
+                            return <li key={favoris.source.id}>{favoris.source.name}</li>
                         }
                         return null;
                     })
