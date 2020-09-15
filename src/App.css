@@ -5,7 +5,30 @@
     border-color: #f8f9fa;
 }
 
+#navbar-content {
+  display: flex;
+  justify-content: space-between;
+}
 
+
+#navbar-left-part {
+  display: flex;
+}
+#navbar-center-part {
+  display: flex;
+}
+
+#search-bar {
+  min-width: 180%;
+}
+
+#navbar-right-part {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/* Articles */
 .titles {
   display: flex;
   justify-content: center;

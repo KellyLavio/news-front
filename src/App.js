@@ -1,6 +1,5 @@
 // React
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
 import UserContext from "./context/UserContext";
 import { tokenName, urls } from "./utils/constants";
 import { Router, Route, Switch } from "react-router-dom";
@@ -18,6 +17,8 @@ import EditerProfilPage from "./components/ProfilPage/EditerProfilPage";
 import EditFavorites from "./components/ProfilPage/EditFavorites";
 
 import "./App.css";
+import { getPersonalData } from "./services/profilService";
+
 
 const App = () => {
   const [isLogged, setIsLogged] = useState(
@@ -36,6 +37,20 @@ const App = () => {
   //     setTheme('light');
   //   }
 
+  const [personnalData, setPersonnalData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+
+    getPersonalData()
+      .then((res) => {
+        setPersonnalData(res.data);
+        setLoading(false);
+      })
+      .catch((err) => console.error(err));
+  }, []
+  );
+
 
     return (
       <ThemeContext.Provider value={{ theme, setTheme }}>
@@ -43,7 +58,7 @@ const App = () => {
           value={{ isLogged, setIsLogged, username, setUsername }}
         >
           <div>
-            <Nav />
+            <Nav login={personnalData.login} />
             <div
               style={{
                 position: "relative",

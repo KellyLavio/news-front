@@ -1,43 +1,49 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import UserContext from "./context/UserContext";
 import history from "./utils/history";
 
-
-class Nav extends Component {
-  render = () => (
+const Nav = ({ login }) => {
+  return (
     <UserContext.Consumer>
-      {value => {
+      {(value) => {
         return (
-          <nav className="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top">
-            <a className="navbar-brand" href="/">
-              News Broadcaster
-            </a>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
+          <nav
+            className="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top"
+            id="navbar-content"
+          >
+            <div id="navbar-left-part">
+              <a className="navbar-brand" href="/">
+                News Broadcaster
+              </a>
+              <button
+                className="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span className="navbar-toggler-icon"></span>
+              </button>
 
-            <div
-              className="collapse navbar-collapse"
-              id="navbarSupportedContent"
-            >
-              <ul className="navbar-nav mr-auto">
-                <li className="nav-item active">
-                  <a className="nav-link" href="/">
-                    Accueil <span className="sr-only">(current)</span>
-                  </a>
-                </li>
-              </ul>
+              <div
+                className="collapse navbar-collapse"
+                id="navbarSupportedContent"
+              >
+                <ul className="navbar-nav mr-auto">
+                  <li className="nav-item active">
+                    <a className="nav-link" href="/">
+                      Accueil <span className="sr-only">(current)</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div id="navbar-center-part">
               <form className="form-inline my-auto mx-auto w-75">
                 <input
-                  className="form-control mr-sm-2 w-75"
+                  className="form-control w-75"
                   type="search"
                   placeholder="Tapez votre mot clé..."
                   aria-label="Search"
@@ -52,29 +58,33 @@ class Nav extends Component {
                   Rechercher
                 </button>
               </form>
+            </div>
+            <div id="navbar-right-part">
               {value.isLogged ? (
-                <div>
-                  {/* <div className="text-white">Prénom NOM</div> */}
-                  <a
-                    type="button"
-                    href="/profil"
-                    className="btn btn-outline-light"
-                    id="profil-btn"
-                  >
-                    Mon Profil
-                  </a>
-                  <button
-                    type="button"
-                    className="btn btn-light"
-                    onClick={(e) => {
-                      localStorage.clear();
-                      history.push("/");
-                      value.isLogged = false;
-                    }}
-                  >
-                    Déconnexion
-                  </button>
-                </div>
+                <>
+                  <div className="text-white">{login}</div>
+                  <div>
+                    <a
+                      type="button"
+                      href="/profil"
+                      className="btn btn-outline-light"
+                      id="profil-btn"
+                    >
+                      Mon Profil
+                    </a>
+                    <button
+                      type="button"
+                      className="btn btn-light"
+                      onClick={(e) => {
+                        localStorage.clear();
+                        history.push("/");
+                        value.isLogged = false;
+                      }}
+                    >
+                      Déconnexion
+                    </button>
+                  </div>
+                </>
               ) : (
                 <>
                   <a
@@ -99,9 +109,8 @@ class Nav extends Component {
           </nav>
         );
       }}
-
     </UserContext.Consumer>
   );
-}
+};
 
 export default Nav;
