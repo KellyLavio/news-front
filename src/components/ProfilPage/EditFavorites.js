@@ -16,11 +16,11 @@ const EditFavorites = () => {
     const [categoryLoading, setCategoryLoading] = useState(true);
     const [sourceLoading, setSourceLoading] = useState(true);
     const [formLoading, setFormLoading] = useState(false);
+    const [updatedCategories, setUpdatedCategories] = useState([]);
 
 
     const registering = data => {
-        setFormLoading(true);
-        
+        setFormLoading(true)
         data.favorites.categories.map((category, index) => {
             console.log(getValue(category));
         })   
@@ -61,7 +61,7 @@ const EditFavorites = () => {
                 </div>
             </div>
             <div className="row w-100 d-flex justify-content-center">
-                <div className="col-md-6">
+                <div className="col-md-8">
                     <form style={{ width: "100%" }} onSubmit={handleSubmit(registering)}>
                         <div className="row d-flex justify-content-center">
                             <div className="col-md-6">
@@ -69,7 +69,7 @@ const EditFavorites = () => {
                             </div>
                         </div>
                         <div className="form-group d-flex justify-content-center">
-                            <div className="col-md-6">
+                            <div className="col-md-8">
                                 <h3 className="text-primary">Catégories</h3>
                                 <p className="text-muted">Veuillez sélectionner au moins une catégorie.</p>
                                 <div className="form-check">
@@ -159,7 +159,7 @@ const EditFavorites = () => {
                                                                     type="checkbox"
                                                                     id={index}
                                                                     name={source.name}
-                                                                    checked />
+                                                                    defaultChecked />
                                                                 <label className="form-check-label" for={index}>
                                                                     {source.name}
                                                                 </label>
