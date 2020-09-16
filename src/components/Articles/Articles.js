@@ -58,6 +58,7 @@ const Articles = () => {
                                 id={article.id}
                                 title={article.title}
                                 url={article.url}
+                                imgUrl={article.imageUrl}
                                 description={article.description}
                                 date={article.date}
                                 source={article.source.name}
