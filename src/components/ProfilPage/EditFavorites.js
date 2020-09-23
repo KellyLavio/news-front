@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import history from "../../utils/history";
 import { getCategories, getSources } from "../../services/favoriteService";
 import { getPersonalData } from "../../services/profilService";
-import { FAVORITE_SOURCE, FAVORITE_CATEGORY } from "../../utils/constants";
-import { updateFavorites } from "../../utils/edit-favorites-utils";
+import { FAVORITE_CATEGORY, FAVORITE_SOURCE } from "../../utils/constants";
 import { getValue } from "../../utils/favorites-utils";
+import history from "../../utils/history";
 
 const EditFavorites = () => {
-    const { register, errors, setError, handleSubmit } = useForm();
+    const { register, handleSubmit } = useForm();
     const [categories, setCategories] = useState([]);
     const [sources, setSources] = useState([]);
     const [personnalFavorites, setPersonnalFavorites] = useState([]);
@@ -16,7 +15,6 @@ const EditFavorites = () => {
     const [categoryLoading, setCategoryLoading] = useState(true);
     const [sourceLoading, setSourceLoading] = useState(true);
     const [formLoading, setFormLoading] = useState(false);
-    const [updatedCategories, setUpdatedCategories] = useState([]);
 
 
     const registering = data => {
