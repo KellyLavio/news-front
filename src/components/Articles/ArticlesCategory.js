@@ -1,9 +1,8 @@
 // React
 import React from "react";
-
 // dependencies
 import ArticleItem from "./ArticleItem";
-import CommentBox from "../ProfilPage/CommentBox";
+
 
 const ArticlesCategory = ({ items }) => {
     console.log(items)
