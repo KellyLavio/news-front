@@ -5,7 +5,7 @@ import Comment from './Comment';
 
 const CommentBox = ({ items }) => {
     return (
-        <div className="card w-75">
+        <div className="card w-75 mt-0 mb-2">
             <div className="card-body">
                 <h6 className="card-title">Commentaires</h6>
                 <p className="card-text">
