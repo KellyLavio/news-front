@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "../../App.css";
 
 const PersonnalDataForm = ({
@@ -19,14 +20,13 @@ const PersonnalDataForm = ({
                 <p>{login}</p>
                 <h4 className="text-primary">Email</h4>
                 <p>{email}</p>
-                <a
-                    type="button"
-                    href="/profil/edit"
+                <Link
+                    to="/profil/edit"
                     className="btn btn-outline-primary"
                     id="profil-btn"
                 >
                     Modifier mes informations personnelles
-              </a>
+              </Link>
             </div>
         </div>
     );
