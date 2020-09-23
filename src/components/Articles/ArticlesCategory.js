@@ -1,11 +1,11 @@
 // React
 import React from "react";
-
 // dependencies
 import ArticleItem from "./ArticleItem";
-import CommentBox from "../ProfilPage/CommentBox";
+
 
 const ArticlesCategory = ({ items }) => {
+    console.log(items)
 
     return (
         <div>
@@ -18,7 +18,7 @@ const ArticlesCategory = ({ items }) => {
                     description={article.description}
                     date={article.date}
                 />
-                <CommentBox items={article.comments}/>
+                {/* <CommentBox items={article.comments}/> */}
                 </>
             ))}
         </div>

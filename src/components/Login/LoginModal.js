@@ -1,13 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { DoubleBounce } from "better-react-spinkit";
 import { Redirect } from 'react-router-dom';
-
+import { tokenName } from '../../utils/constants';
 // import user from "../Users/Users";
 import login from "../../utils/login-utils";
 import LoginErrors from "./LoginErrors";
-import UserContext from "../../context/UserContext";
-import { tokenName } from '../../utils/constants';
+
 
 
 
