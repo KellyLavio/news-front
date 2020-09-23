@@ -21,12 +21,11 @@ const EditerProfilPage = () => {
         if (response.status < 200 || response.status >= 300)
           throw new Error(response);
 
-        return response.json();
       })
       .then(e => {
         setFormLoading(false);
         history.push("/profil");
-        $(".toast").toast("show");
+        alert("Votre profil a été mis à jour!")
       })
       .catch(e => {
         setFormLoading(false);
