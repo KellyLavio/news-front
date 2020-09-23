@@ -17,11 +17,8 @@ const EditFavorites = () => {
     const [formLoading, setFormLoading] = useState(false);
 
 
-    const registering = data => {
+    const registering = () => {
         setFormLoading(true)
-        data.favorites.categories.map((category, index) => {
-            console.log(getValue(category));
-        })   
     }
 
     useEffect(() => {
