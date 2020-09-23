@@ -3,12 +3,14 @@ import React from "react";
 
 // dependencies
 import ArticleItem from "./ArticleItem";
+import CommentBox from "../ProfilPage/CommentBox";
 
-const ArticlesCategory = ({items}) => {
+const ArticlesCategory = ({ items }) => {
 
     return (
         <div>
             {items.map((article, index) => (
+                <>
                 <ArticleItem key={index}
                     id={article.id}
                     title={article.title}
@@ -16,6 +18,8 @@ const ArticlesCategory = ({items}) => {
                     description={article.description}
                     date={article.date}
                 />
+                <CommentBox items={article.comments}/>
+                </>
             ))}
         </div>
     )

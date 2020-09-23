@@ -24,8 +24,12 @@ const UserMainContainer = () => {
                     </div>
                     <UserFavoritesContainer />
                     <div className="col">
-                            <h2 className="text-danger text-center">Infos générales</h2>
-                            <Articles />
+                        <div className="row w-100">
+                            <div className="col titles">
+                                <h2 className="text-danger text-center">Infos générales</h2>
+                            </div>
+                        </div>
+                        <Articles />
                     </div>
 
 

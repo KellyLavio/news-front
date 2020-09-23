@@ -13,7 +13,9 @@ const ArticleItem = ({
     description,
     date,
     source,
-    category
+    category,
+    imgUrl,
+    comments
 }) => {
     return (
         <div className="row d-flex justify-content-center mb-4" key={id}
@@ -24,11 +26,19 @@ const ArticleItem = ({
                 </div>
                 <div className="card-body">
                     <a href={url}>
-                        <img
-                            className="card-img-top"
-                            src="https://source.unsplash.com/1600x900/"
-                            alt="Card cap"
-                        />
+                        {imgUrl  ? (
+                            <img className="card-img-top"
+                                src={imgUrl}
+                                alt="Card cap" />
+                        ) :
+                        (
+                            <img
+                                className="card-img-top"
+                                src="https://source.unsplash.com/1600x900/"
+                                alt="Card cap"
+                            />
+                        )}
+
                     </a>
                     <p className="card-text">{description}</p>
                     <a href={url} className="btn btn-primary">
