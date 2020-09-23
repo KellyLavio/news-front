@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import UserContext from "./context/UserContext";
 import history from "./utils/history";
 
@@ -30,9 +31,9 @@ class Nav extends Component {
             >
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item active">
-                  <a className="nav-link" href="/">
+                  <Link className="nav-link" to="/">
                     Accueil <span className="sr-only">(current)</span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
               <form className="form-inline my-auto mx-auto w-75">
@@ -55,14 +56,13 @@ class Nav extends Component {
               {value.isLogged ? (
                 <div>
                   {/* <div className="text-white">Prénom NOM</div> */}
-                  <a
-                    type="button"
-                    href="/profil"
+                  <Link
+                    to="/profil"
                     className="btn btn-outline-light"
                     id="profil-btn"
                   >
                     Mon Profil
-                  </a>
+                  </Link>
                   <button
                     type="button"
                     className="btn btn-light"
@@ -77,22 +77,20 @@ class Nav extends Component {
                 </div>
               ) : (
                 <>
-                  <a
-                    type="button"
-                    href="/register"
+                  <Link
+                    to="/register"
                     className="btn btn-outline-light"
                     id="inscription-btn"
                   >
                     Inscription
-                  </a>
-                  <a
-                    type="button"
-                    href="/login"
+                  </Link>
+                  <Link
+                    to="/login"
                     className="btn btn-light"
                     id="connexion-btn"
                   >
                     Connexion
-                  </a>
+                  </Link>
                 </>
               )}
             </div>
