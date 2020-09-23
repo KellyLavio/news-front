@@ -69,7 +69,7 @@ class Nav extends Component {
                     onClick={(e) => {
                       localStorage.clear();
                       history.push("/");
-                      value.isLogged = false;
+                      value.setIsLogged(false);
                     }}
                   >
                     Déconnexion
