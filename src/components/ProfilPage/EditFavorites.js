@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { getCategories, getSources } from "../../services/favoriteService";
 import { getPersonalData } from "../../services/profilService";
 import { FAVORITE_CATEGORY, FAVORITE_SOURCE } from "../../utils/constants";
-import { getValue } from "../../utils/favorites-utils";
 import history from "../../utils/history";
 
 const EditFavorites = () => {
