@@ -7,9 +7,8 @@ const Comment = ({
 }) => {
     return(
         <div>
-            <p>{id}</p>
+            <p className="text-muted">{date}</p>
             <p>{content}</p>
-            <p>{date}</p>
         </div>
     )
 }

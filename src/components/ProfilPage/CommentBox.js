@@ -5,16 +5,22 @@ import Comment from './Comment';
 
 const CommentBox = ({ items }) => {
     return (
-        <div className="card-footer">
-            <h4>Laissez votre commentaire </h4>
-            {items.map((comment, index) => (
-                <Comment key={index}
-                    id={comment.id}
-                    content={comment.content}
-                    date={comment.date}
-                    />
-                )
-            )}
+        <div className="card w-75">
+            <div className="card-body">
+                <h6 className="card-title">Commentaires</h6>
+                <p className="card-text">
+                    {items.map((comment, index) => (
+                        <Comment key={index}
+                            id={comment.id}
+                            content={comment.content}
+                            date={comment.date}
+                        />
+                    )
+                    )}
+                </p>
+            </div>
+
+
         </div>
     );
 }
